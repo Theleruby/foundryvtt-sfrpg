@@ -2,7 +2,7 @@
   "_id": "3DC4EeOgN32bOFeR",
   "name": "Skipshot pistol, tactical",
   "type": "weapon",
-  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "img": "systems/sfrpg/icons/equipment/weapons/semi-auto-pistol-tactical.webp",
   "system": {
     "type": "",
     "ability": "dex",
