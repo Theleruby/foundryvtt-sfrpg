@@ -1185,10 +1185,11 @@ export class ItemSFRPG extends Mix(foundry.documents.Item).with(ItemActivationMi
                 this.consumeCapacity(this._calculateAmmoUsageWithModifiers(usage.value));
             } else if (usage.per && ['minute'].includes(usage.per)) {
                 if (game.combat) {
-                    const round = game.combat.current.round || 0;
-                    if (round % 10 === 1) {
-                        this.consumeCapacity(this._calculateAmmoUsageWithModifiers(usage.value));
-                    }
+                    Hooks.callAll("consumeCapacityMinute", {
+                        actor: this.actor,
+                        item: this,
+                        value: this._calculateAmmoUsageWithModifiers(usage.value)
+                    });
                 } else {
                     ui.notifications.info("You currently cannot deduct ammunition from weapons with a usage per minute outside of combat.");
                 }
