@@ -394,6 +394,9 @@ export class ActorSheetSFRPG extends ActorSheet {
     }
 
     _prepareAttackString(item)  {
+        item.config.attackString = ActorSheetSFRPG.getAttackString(item);
+    }
+    static getAttackString(item) {
         try {
             const itemData = item.system;
             const actor = item.actor;
@@ -437,10 +440,10 @@ export class ActorSheetSFRPG extends ActorSheet {
             const rollData = RollContext.createItemRollContext(item, item.actor).getRollData();
 
             const roll = Roll.create(preparedFormula, rollData).simplifiedFormula;
-            item.config.attackString = Number(roll) >= 0 ? `+${roll}` : roll;
+            return Number(roll) >= 0 ? `+${roll}` : roll;
 
         } catch {
-            item.config.attackString = game.i18n.localize("SFRPG.Attack");
+            return game.i18n.localize("SFRPG.Attack");
         }
     }
 
@@ -449,6 +452,9 @@ export class ActorSheetSFRPG extends ActorSheet {
      * @param {ItemSFRPG} item
      */
     _prepareDamageString(item) {
+        item.config.damageString = ActorSheetSFRPG.getDamageString(item);
+    }
+    static getDamageString(item) {
         try {
             const isWeapon = ["weapon", "shield"].includes(item.type);
             const formula = item.system.damage.parts[0].formula;
@@ -478,9 +484,9 @@ export class ActorSheetSFRPG extends ActorSheet {
                 })
                 .filterJoin(" & ");
 
-            item.config.damageString = `${roll} ${damageTypes}`;
+            return `${roll} ${damageTypes}`;
         } catch {
-            item.config.damageString = item.system.actionType === "heal"
+            return item.system.actionType === "heal"
                 ? game.i18n.localize("SFRPG.ActionHeal")
                 : game.i18n.localize("SFRPG.Damage.Title");
         }
