@@ -7,7 +7,7 @@
     "systemId": "sfrpg",
     "systemVersion": "0.28.0"
   },
-  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "img": "systems/sfrpg/icons/equipment/weapons/semi-auto-pistol-tactical.webp",
   "system": {
     "type": "",
     "ability": "dex",
