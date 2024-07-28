@@ -33,6 +33,11 @@ export const ItemActivationMixin = (superclass) => class extends superclass {
         return !!(itemData.isActive);
     }
 
+    shouldHaveActivationToggled() {
+        const itemData = this.system;
+        return Array.isArray(itemData.modifiers) && itemData.modifiers.length > 0;
+    }
+
     setActive(active) {
         // Only true and false are accepted.
         if (active !== true && active !== false) {
@@ -57,11 +62,12 @@ export const ItemActivationMixin = (superclass) => class extends superclass {
             updateData['system.uses.value'] = Math.max(0, remainingUses - 1);
         }
 
-        updateData['system.isActive'] = active;
+        const shouldToggleActivation = this.shouldHaveActivationToggled();
+        updateData['system.isActive'] = shouldToggleActivation ? active : false;
 
         const updatePromise = this.update(updateData);
 
-        if (active || this.system.duration.value || this.system.uses.max > 0) {
+        if (active || shouldToggleActivation || this.system.duration.value || this.system.uses.max > 0) {
             updatePromise.then(() => {
                 // Render the chat card template
                 const templateData = active

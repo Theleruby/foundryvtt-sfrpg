@@ -28,7 +28,7 @@ export class HotbarSFRPG extends Hotbar {
                     hasAttack: ["mwak", "rwak", "msak", "rsak"].includes(item.system.actionType) && (!["weapon", "shield"].includes(item.type) || item.system.equipped),
                     hasDamage: item.system.damage?.parts && item.system.damage.parts.length > 0 && (!["weapon", "shield"].includes(item.type) || item.system.equipped),
                     hasUses: item.hasUses(),
-                    hasActivation: item.canBeActivated(),
+                    hasActivation: item.canBeActivated() && item.shouldHaveActivationToggled(),
                     isActive: item.isActive(),
                     hasCapacity: item.hasCapacity()
 
