@@ -37,7 +37,8 @@ export default function(engine) {
 
                     const rollResult = DiceSFRPG.resolveFormulaWithoutDice(dcFormula, rollContext, {logErrors: false});
                     if (!rollResult.hadError) {
-                        item.labels.skillCheck = `DC ${rollResult.total >= 0 ? rollResult.total : ""} ${CONFIG.SFRPG.skills[skillCheck.type]} ${game.i18n.localize("SFRPG.ChatCard.ItemAction.Check")}`;
+                        const dc = rollResult.total > 0 ? `DC ${rollResult.total} ` : "";
+                        item.labels.skillCheck = `${dc}${CONFIG.SFRPG.skills[skillCheck.type]} ${game.i18n.localize("SFRPG.ChatCard.ItemAction.Check")}`;
                         item.labels.skillFormula = dcFormula;
                         computedSkill = true;
                     } else {
