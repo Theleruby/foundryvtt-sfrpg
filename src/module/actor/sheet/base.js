@@ -169,6 +169,11 @@ export class ActorSheetSFRPG extends foundry.appv1.sheets.ActorSheet {
             rollData: this.actor.getRollData() ?? {},
             secrets
         });
+        data.enrichedPrivateNotes = await foundry.applications.ux.TextEditor.enrichHTML(this.actor.system.details.biography.privateNotes, {
+            async: true,
+            rollData: this.actor.getRollData() ?? {},
+            secrets
+        });
         data.enrichedGMNotes = await foundry.applications.ux.TextEditor.enrichHTML(this.actor.system.details.biography.gmNotes, {
             async: true,
             rollData: this.actor.getRollData() ?? {},
