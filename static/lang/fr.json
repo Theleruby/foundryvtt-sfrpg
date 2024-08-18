@@ -102,6 +102,7 @@
                 "TabBio": "Biographie",
                 "TabEcology": "Écologie",
                 "TabGM": "Notes MJ",
+                "TabPrivateNotes": "Private Notes",
                 "TooltipGM": "Il y a des notes du MJ assignées à ce personnage.",
                 "Weight": "Poids",
                 "WeightPlaceholder": "ex: 70 kg"

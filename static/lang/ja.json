@@ -102,6 +102,7 @@
                 "TabBio": "Biography",
                 "TabEcology": "Ecology",
                 "TabGM": "GM Notes",
+                "TabPrivateNotes": "Private Notes",
                 "TooltipGM": "There are GM notes assigned to this actor.",
                 "Weight": "Weight",
                 "WeightPlaceholder": "e.g. 130 lbs"

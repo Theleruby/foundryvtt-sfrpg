@@ -169,6 +169,11 @@ export class ActorSheetSFRPG extends ActorSheet {
             rollData: this.actor.getRollData() ?? {},
             secrets
         });
+        data.enrichedPrivateNotes = await TextEditor.enrichHTML(this.actor.system.details.biography.privateNotes, {
+            async: true,
+            rollData: this.actor.getRollData() ?? {},
+            secrets
+        });
         data.enrichedGMNotes = await TextEditor.enrichHTML(this.actor.system.details.biography.gmNotes, {
             async: true,
             rollData: this.actor.getRollData() ?? {},
