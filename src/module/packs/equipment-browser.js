@@ -10,6 +10,7 @@ const equipmentTypes = {
     "goods"        : "SFRPG.Items.Categories.Goods",
     "hybrid"       : "SFRPG.Items.Categories.HybridItems",
     "magic"        : "SFRPG.Items.Categories.MagicItems",
+    "quest"        : "SFRPG.Items.Categories.QuestItems",
     "shield"       : "SFRPG.Items.Categories.Shields",
     "technological": "SFRPG.Items.Categories.TechnologicalItems",
     "upgrade"      : "SFRPG.Items.Categories.ArmorUpgrades",

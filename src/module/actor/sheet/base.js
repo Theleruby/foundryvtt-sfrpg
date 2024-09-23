@@ -752,6 +752,7 @@ export class ActorSheetSFRPG extends foundry.appv1.sheets.ActorSheet {
             case 'ammunition':
             case 'consumable':
             case 'goods':
+            case 'quest':
             case 'container':
             case 'technological,magic,hybrid':
             case 'fusion,upgrade,weaponAccessory':
