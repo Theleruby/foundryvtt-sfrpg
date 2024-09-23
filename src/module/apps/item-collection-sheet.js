@@ -291,7 +291,7 @@ export class ItemCollectionSheet extends DocumentSheet {
         if (fn) fn.bind(itemData)(data, labels, props);
 
         // General equipment properties
-        if (data.hasOwnProperty("equipped") && !["goods", "augmentation", "technological", "upgrade"].includes(itemData.type)) {
+        if (data.hasOwnProperty("equipped") && !["goods", "quest", "augmentation", "technological", "upgrade"].includes(itemData.type)) {
             props.push(
                 data.equipped ? "Equipped" : "Not Equipped",
                 data.proficient ? "Proficient" : "Not Proficient"

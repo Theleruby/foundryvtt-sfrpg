@@ -1622,6 +1622,7 @@
                 "HybridItems": "Objets hybrides",
                 "MagicItems": "Objets magiques",
                 "MiscellaneousItems": "Objets divers",
+                "QuestItems": "Quest Items",
                 "Races": "Races",
                 "Shields": "Boucliers",
                 "Spells": "Sorts",
@@ -1710,6 +1711,9 @@
             "MaxDex": "Modificateur de dextérité maximum",
             "NotProficient": "Non maîtrisé",
             "Proficient": "Maîtrise",
+            "Quest": {
+                "Details": "Quest Item Details"
+            },
             "RangeInformation": "Information de portée",
             "Shield": {
                 "ACP": "MAT: {acp}",
@@ -3391,6 +3395,7 @@
             "hybrid": "Hybride",
             "magic": "Magique",
             "mod": "Module de drone",
+            "quest": "Quest Item",
             "race": "Race",
             "shield": "Bouclier",
             "spell": "Sort",

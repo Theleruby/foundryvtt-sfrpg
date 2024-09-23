@@ -1629,6 +1629,7 @@
                 "HybridItems": "Items Hibridos",
                 "MagicItems": "Items Magicos",
                 "MiscellaneousItems": "Items Diversos",
+                "QuestItems": "Quest Items",
                 "Races": "Raças",
                 "Shields": "Escudos",
                 "Spells": "Magias",
@@ -1717,6 +1718,9 @@
             "MaxDex": "Modificador Max. Destreza",
             "NotProficient": "Sem Proeficiencia",
             "Proficient": "Proficiente",
+            "Quest": {
+                "Details": "Quest Item Details"
+            },
             "RangeInformation": "Range Information",
             "Shield": {
                 "ACP": "PVA: {acp}",
@@ -3398,6 +3402,7 @@
             "hybrid": "Hibrido",
             "magic": "Magico",
             "mod": "Drone Mod",
+            "quest": "Quest Item",
             "race": "Raça",
             "shield": "Escudo",
             "spell": "Magia",

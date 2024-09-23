@@ -354,6 +354,7 @@ Hooks.once('init', async function() {
         "goods": "fas fa-boxes-stacked",
         "hybrid": "fas fa-hat-wizard",
         "magic": "fas fa-wand-magic",
+        "quest": "fas fa-circle-question",
         "shield": "fas fa-shield",
         "technological": "fas fa-microchip",
         "upgrade": "fas fa-link",

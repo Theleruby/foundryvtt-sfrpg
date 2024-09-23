@@ -1629,6 +1629,7 @@
                 "HybridItems": "Hybride Gegenstände",
                 "MagicItems": "Mag. Gegenstände",
                 "MiscellaneousItems": "Sonstige Gegenstände",
+                "QuestItems": "Quest Items",
                 "Races": "Völker",
                 "Shields": "Schilde",
                 "Spells": "Zauber",
@@ -1717,6 +1718,9 @@
             "MaxDex": "Max. Geschicklichkeitsmodifikator",
             "NotProficient": "Nicht geübt",
             "Proficient": "Im Umgang geübt",
+            "Quest": {
+                "Details": "Quest Item Details"
+            },
             "RangeInformation": "Range Information",
             "Shield": {
                 "ACP": "RM: {acp}",
@@ -3398,6 +3402,7 @@
             "hybrid": "Hybrid",
             "magic": "Magie",
             "mod": "Drohnenmodifikation",
+            "quest": "Quest Item",
             "race": "Volk",
             "shield": "Schild",
             "spell": "Zauber",

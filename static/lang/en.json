@@ -1624,6 +1624,7 @@
                 "HybridItems": "Hybrid Items",
                 "MagicItems": "Magic Items",
                 "MiscellaneousItems": "Miscellaneous Items",
+                "QuestItems": "Quest Items",
                 "Races": "Species",
                 "Shields": "Shields",
                 "Spells": "Spells",
@@ -1712,6 +1713,9 @@
             "MaxDex": "Max. Dexterity Modifier",
             "NotProficient": "Not Proficient",
             "Proficient": "Proficient",
+            "Quest": {
+                "Details": "Quest Item Details"
+            },
             "RangeInformation": "Range Information",
             "Shield": {
                 "ACP": "ACP: {acp}",
@@ -3393,6 +3397,7 @@
             "hybrid": "Hybrid",
             "magic": "Magic",
             "mod": "Drone Mod",
+            "quest": "Quest Item",
             "race": "Species",
             "shield": "Shield",
             "spell": "Spell",

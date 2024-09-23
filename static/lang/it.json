@@ -1629,6 +1629,7 @@
                 "HybridItems": "Oggetti Ibridi",
                 "MagicItems": "Oggetti Magici",
                 "MiscellaneousItems": "Oggetti Vari",
+                "Quest": "Quest Items",
                 "Races": "Razziale",
                 "Shields": "Scudi",
                 "Spells": "Incantesimi",
@@ -1717,6 +1718,9 @@
             "MaxDex": "Modificatore di Destrezza Massimo",
             "NotProficient": "Non Competente",
             "Proficient": "Competente",
+            "Quest": {
+                "Details": "Quest Item Details"
+            },
             "RangeInformation": "Range Information",
             "Shield": {
                 "ACP": "MAT: {acp}",
@@ -3398,6 +3402,7 @@
             "hybrid": "Ibrido",
             "magic": "Magico",
             "mod": "Modifica del Drone",
+            "quest": "Quest Item",
             "race": "Razza",
             "shield": "Scudo",
             "spell": "Incantesimo",

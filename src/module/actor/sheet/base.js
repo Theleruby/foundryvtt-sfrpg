@@ -681,6 +681,7 @@ export class ActorSheetSFRPG extends ActorSheet {
             case 'ammunition':
             case 'consumable':
             case 'goods':
+            case 'quest':
             case 'container':
             case 'technological,magic,hybrid':
             case 'fusion,upgrade,weaponAccessory':

@@ -656,6 +656,17 @@ export class ItemSFRPG extends Mix(Item).with(ItemActivationMixin, ItemCapacityM
     }
 
     /**
+     * Prepare chat card data for quest type items
+     * @private
+     */
+    _questChatData(data, labels, props) {
+        props.push(
+            {name: game.i18n.localize("TYPES.Item.quest"), tooltip: null},
+            data.bulk ? {name: `${game.i18n.localize("SFRPG.InventoryBulk")} ${data.bulk}`, tooltip: null} : null
+        );
+    }
+
+    /**
      * Prepare chat card data for technological type items
      * @param {Object} data The items data
      * @param {Object} labels Any labels for the item
