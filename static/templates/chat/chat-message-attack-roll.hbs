@@ -18,6 +18,7 @@
     <div class="chard-card-custom-details">
         <ul>
             {{#if item.labels.range }}<li>Range : {{item.labels.range}}</li>{{/if}}
+            {{#if item.labels.altRange }}<li>Alt Range : {{item.labels.altRange}}</li>{{/if}}
             {{#if hasCapacity }}<li>Ammo : {{ammoLeft}}/{{item.system.capacity.max}}</li>{{/if}}
         </ul>
     </div>

@@ -21,6 +21,10 @@
       "condition": "",
       "cost": null
     },
+    "altRange": {
+      "units": "ft",
+      "value": "500"
+    },
     "ammunitionType": "charge",
     "area": {
       "effect": "",

@@ -76,6 +76,46 @@ export default function(engine) {
             }
 
             /**
+             * Alt Range
+             */
+            {
+
+                const altRangeType = data.altRange?.units ?? "none";
+
+                if (["close", "medium", "long"].includes(altRangeType)) {
+                    let altRangeValue = 0;
+                    // Close/medium/long ranges for spells are calculated during actor prep
+                    if (item.type === "spell") {
+                        altRangeValue = actor ? actorData?.spells?.range[altRangeType] : null;
+                        // Since we have no way of telling which level a feature will scale off, c/m/l on features still require a formula
+                    } else {
+                        altRangeValue = calculateWithContext(data.altRange.value);
+                    }
+
+                    data.altRange.total = altRangeValue;
+                    if (altRangeValue) {
+                        item.labels.altRange = game.i18n.format("SFRPG.RangeCalculated", {
+                            rangeType: C.distanceUnits[altRangeType],
+                            total: altRangeValue.toLocaleString(game.i18n.lang)
+                        });
+                    } else {
+                        item.labels.altRange = game.i18n.format(`SFRPG.Range${altRangeType.capitalize()}`);
+                    }
+
+                } else if (["none", "personal", "touch", "planetary", "system", "plane", "unlimited"].includes(altRangeType)) {
+                    item.labels.altRange = C.distanceUnits[altRangeType];
+                // Other ranges allow for formulas
+                } else {
+                    const altRangeValue = calculateWithContext(data.altRange.value) || "";
+                    data.altRange.total = altRangeValue;
+                    item.labels.altRange = [
+                        altRangeValue?.toLocaleString(game.i18n.lang) || data.altRange.value,
+                        C.distanceUnits[altRangeType]
+                    ].filterJoin(" ");
+                }
+            }
+
+            /**
              * Limited uses
              */
             data.uses.total = calculateWithContext(data.uses.max);

@@ -1552,6 +1552,8 @@
                 "Activation": "Activation",
                 "ActivationCondition": "Condição de Ativação",
                 "ActivationCost": "Custo de Ativação",
+                "AltRange": "Alt Range",
+                "AltRangeIncrement": "Alt Range Increment",
                 "Area": "Area",
                 "Duration": "Duração",
                 "LimitedUses": "Limites de Uso",
@@ -1559,6 +1561,7 @@
                 "RangeIncrement": "Range Increment",
                 "Target": "Alvo"
             },
+            "AltRangeInformation": "Alt Range Information",
             "Ammunition": {
                 "Ammo": "Ammo",
                 "AmmunitionType": "Ammunition Type",

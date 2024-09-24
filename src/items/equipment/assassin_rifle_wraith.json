@@ -21,6 +21,10 @@
       "condition": "",
       "cost": null
     },
+    "altRange": {
+      "units": "ft",
+      "value": "1000"
+    },
     "ammunitionType": "roundL",
     "area": {
       "effect": "",

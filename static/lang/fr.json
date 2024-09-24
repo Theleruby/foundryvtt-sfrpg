@@ -1546,6 +1546,8 @@
                 "Activation": "Activation",
                 "ActivationCondition": "Condition d'activation",
                 "ActivationCost": "Coût d'activation",
+                "AltRange": "Alt Range",
+                "AltRangeIncrement": "Alt Range Increment",
                 "Area": "Zone",
                 "Duration": "Durée",
                 "LimitedUses": "Utilisations limitées",
@@ -1553,6 +1555,7 @@
                 "RangeIncrement": "Range Increment",
                 "Target": "Cible"
             },
+            "AltRangeInformation": "Alt Range Information",
             "Ammunition": {
                 "Ammo": "Ammo",
                 "AmmunitionType": "Type de munition",

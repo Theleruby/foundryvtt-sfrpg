@@ -534,6 +534,14 @@ export class ItemSFRPG extends Mix(Item).with(ItemActivationMixin, ItemCapacityM
                     { title: game.i18n.localize(`SFRPG.Items.Activation.Range${this.type === "weapon" ? "Increment" : ""}`), name: labels.range, tooltip: rangeTooltip }
                 );
             }
+            if (data.altRange !== undefined && (data.altRange.value || data.altRange.total) && data.altRange.units !== "none") {
+                const altRangeTooltip = ["close", "medium", "long"].includes(data.altRange.units)
+                    ? game.i18n.format(`SFRPG.AltRange${data.altRange.units.capitalize()}`)
+                    : null;
+                props.push(
+                    { title: game.i18n.localize(`SFRPG.Items.Activation.AltRange${this.type === "weapon" ? "Increment" : ""}`), name: labels.altRange, tooltip: altRangeTooltip }
+                );
+            }
             if (data.area.value || data.area.total) props.push(
                 { title: game.i18n.localize("SFRPG.Items.Activation.Area"), name: labels.area, tooltip: null }
             );
