@@ -96,6 +96,20 @@
                     </div>
                 </div>
 
+                {{!-- Alt Range Increment --}}
+                <div class="form-group input-select">
+                    <label>{{#if (eq this.data.type "weapon")}}{{ localize "SFRPG.Items.Activation.AltRangeIncrement" }}{{else}}{{ localize "SFRPG.Items.Activation.AltRange" }}{{/if}}</label>
+                    <div class="form-fields">
+                        {{#if this.altRange.showTotal}}<p class="calculated-total"><strong>{{itemData.altRange.total}}</strong></p>{{/if}}
+                        {{#if this.altRange.hasInput}}
+                        <input class="wide-form-field" type="text" name="system.altRange.value" value="{{itemData.altRange.value}}" data-dtype="String" placeholder="Alt Range"/>
+                        {{/if}}
+                        <select name="system.altRange.units">
+                            {{selectOptions (sfrpg "distanceUnits") selected=itemData.altRange.units}}
+                        </select>
+                    </div>
+                </div>
+
                 {{!-- Area --}}
                 <div class="form-group input-select-select-select">
                     <label>{{ localize "SFRPG.Items.Activation.Area" }}</label>

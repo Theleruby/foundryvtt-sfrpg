@@ -310,6 +310,7 @@ export class ItemCollectionSheet extends DocumentSheet {
                 labels.area,
                 labels.activation,
                 labels.range,
+                labels.altRange,
                 labels.duration
             );
         }
