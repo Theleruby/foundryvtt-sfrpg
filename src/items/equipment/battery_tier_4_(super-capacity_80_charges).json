@@ -1,13 +1,13 @@
 {
-  "_id": "Se9zatyyk6dVo8VC",
-  "name": "Battery, Ultra-Capacity",
+  "_id": "SyP17Mci1t570LI6",
+  "name": "Battery, Tier 4 (Super-Capacity, 80 Charges)",
   "type": "ammunition",
   "_stats": {
     "coreVersion": 12,
     "systemId": "sfrpg",
     "systemVersion": "0.28.0"
   },
-  "img": "systems/sfrpg/icons/equipment/weapons/battery-ultra-capacity.webp",
+  "img": "systems/sfrpg/icons/equipment/weapons/battery-super-capacity.webp",
   "system": {
     "type": "",
     "ammunitionType": "charge",
@@ -32,8 +32,8 @@
     "attuned": false,
     "bulk": "-",
     "capacity": {
-      "max": 100,
-      "value": 100
+      "max": 80,
+      "value": 80
     },
     "damage": {
       "parts": []
@@ -43,14 +43,14 @@
       "gmnotes": "",
       "short": "",
       "unidentified": "",
-      "value": "<p>Batteries charge powered weapons, but they can also be used to power an array of items, including powered armor and technological items. Batteries have a standardized size and weight, and items that take batteries all have a slot into which they fit, regardless of the item’s actual size. Weapons that use batteries list the highest-capacity battery they are capable of using as well as how many charges from the battery that each shot consumes.</p>\n<p><strong>Capacity:</strong> 100</p>"
+      "value": "<p>Batteries charge powered weapons, but they can also be used to power an array of items, including powered armor and technological items. Batteries have a standardized size and weight, and items that take batteries all have a slot into which they fit, regardless of the item’s actual size. Weapons that use batteries list the highest-capacity battery they are capable of using as well as how many charges from the battery that each shot consumes.</p>\n<p><strong>Capacity:</strong> 80</p>"
     },
     "equippable": false,
     "equipped": false,
     "equippedBulkMultiplier": 1,
     "identified": true,
-    "level": 5,
-    "price": 445,
+    "level": 4,
+    "price": 390,
     "quantity": 1,
     "quantityPerPack": 1,
     "source": "Core Rulebook",

@@ -51,7 +51,7 @@
     "attuned": false,
     "bulk": "2",
     "capacity": {
-      "max": 20,
+      "max": 40,
       "value": 0
     },
     "chatFlavor": "",
@@ -242,7 +242,7 @@
     },
     "usage": {
       "per": "shot",
-      "value": 1
+      "value": 2
     },
     "uses": {
       "max": null,

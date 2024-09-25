@@ -1,0 +1,36 @@
+{
+  "_id": "u45SR39Vsr494YcD",
+  "name": "Battery, Tier 3 (Extended-Capacity, 60 Charges)",
+  "type": "ammunition",
+  "_stats": {
+    "coreVersion": 12,
+    "systemId": "sfrpg",
+    "systemVersion": "0.28.0"
+  },
+  "img": "systems/sfrpg/icons/equipment/weapons/battery-extended-capacity.webp",
+  "system": {
+    "type": "",
+    "ammunitionType": "charge",
+    "attuned": false,
+    "bulk": "-",
+    "capacity": {
+      "max": 60,
+      "value": 60
+    },
+    "damage": {
+      "parts": []
+    },
+    "description": {
+      "chat": "",
+      "unidentified": "",
+      "value": "<p>Batteries charge powered weapons, but they can also be used to power an array of items, including powered armor and technological items. Batteries have a standardized size and weight, and items that take batteries all have a slot into which they fit, regardless of the item’s actual size. Weapons that use batteries list the highest-capacity battery they are capable of using as well as how many charges from the battery that each shot consumes.</p>\n<p><strong>Capacity:</strong> 60</p>"
+    },
+    "equipped": false,
+    "identified": true,
+    "level": 4,
+    "price": 355,
+    "quantity": 1,
+    "source": "Ruby",
+    "useCapacity": true
+  }
+}
