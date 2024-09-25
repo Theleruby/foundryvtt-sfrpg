@@ -49,7 +49,8 @@ export class ActorSheetSFRPGCharacter extends ActorSheetSFRPG {
         const actorData = data.system;
 
         const inventory = {
-            weapon: { label: game.i18n.format(SFRPG.itemTypes["weapon"]), items: [], dataset: { type: "weapon" }, allowAdd: true },
+            weaponNatural: { label: game.i18n.format("SFRPG.ActorSheet.Inventory.Interface.WeaponsNatural"), items: [], dataset: { }, allowAdd: false },
+            weapon: { label: game.i18n.format("SFRPG.ActorSheet.Inventory.Interface.WeaponsEquipment"), items: [], dataset: { type: "weapon" }, allowAdd: true },
             shield: { label: game.i18n.format(SFRPG.itemTypes["shield"]), items: [], dataset: { type: "shield" }, allowAdd: true },
             equipment: { label: game.i18n.format(SFRPG.itemTypes["equipment"]), items: [], dataset: { type: "equipment" }, allowAdd: true },
             ammunition: { label: game.i18n.format(SFRPG.itemTypes["ammunition"]), items: [], dataset: { type: "ammunition" }, allowAdd: true },
@@ -64,8 +65,10 @@ export class ActorSheetSFRPGCharacter extends ActorSheetSFRPG {
         let physicalInventoryItems = [];
         for (const [key, value] of Object.entries(inventory)) {
             const datasetType = value.dataset.type;
-            const types = datasetType.split(',');
-            physicalInventoryItems = physicalInventoryItems.concat(types);
+            if (datasetType) {
+                const types = datasetType.split(',');
+                physicalInventoryItems = physicalInventoryItems.concat(types);
+            }
         }
 
         //   0      1       2      3        4      5       6           7               8     9
@@ -137,11 +140,17 @@ export class ActorSheetSFRPGCharacter extends ActorSheetSFRPG {
             let targetItemType = itemType;
             if (!(itemType in inventory)) {
                 for (const [key, entry] of Object.entries(inventory)) {
-                    if (entry.dataset.type.includes(itemType)) {
+                    if (entry.dataset.type !== undefined && entry.dataset.type.includes(itemType)) {
                         targetItemType = key;
                         break;
                     }
                 }
+            }
+
+            // is this a natural weapon, if so move it.
+            if (targetItemType === "weapon" && itemData.item?.system?.isEquipment === false)
+            {
+                targetItemType = "weaponNatural";
             }
 
             if (!(targetItemType in inventory)) {
