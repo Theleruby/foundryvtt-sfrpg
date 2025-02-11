@@ -1,8 +1,8 @@
 {
-  "_id": "y7jCvzzeoZJ5HMeq",
-  "name": "Red Star Plasma Kukri",
+  "_id": "SczgO3pzjh04CTJ8",
+  "name": "Plasma Double-Kukri, Red Star",
   "type": "weapon",
-  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "img": "systems/sfrpg/icons/equipment/weapons/plasma-kukri-red.webp",
   "system": {
     "type": "",
     "ability": "str",
@@ -19,7 +19,6 @@
     "ammunitionType": "charge",
     "area": {
       "effect": "",
-      "shapable": false,
       "shape": "",
       "units": null,
       "value": null
@@ -52,8 +51,6 @@
     "chatFlavor": "",
     "container": {
       "contents": [],
-      "includeContentsInWealthCalculation": 1,
-      "isOpen": true,
       "storage": [
         {
           "type": "slot",
@@ -61,7 +58,7 @@
             "fusion"
           ],
           "affectsEncumbrance": true,
-          "amount": 4,
+          "amount": 5,
           "subtype": "fusion",
           "weightProperty": "level"
         },
@@ -84,7 +81,7 @@
     "damage": {
       "parts": [
         {
-          "formula": "1d4",
+          "formula": "1d8",
           "operator": "and",
           "types": {
             "electricity": true,
@@ -93,11 +90,8 @@
         }
       ]
     },
-    "damageNotes": "",
     "description": {
       "chat": "",
-      "gmnotes": "",
-      "short": "",
       "unidentified": "",
       "value": ""
     },
@@ -108,14 +102,11 @@
     },
     "equippable": true,
     "equipped": false,
-    "equippedBulkMultiplier": 1,
     "formula": "",
     "identified": true,
-    "isActive": null,
-    "isEquipment": true,
-    "level": 4,
+    "level": 5,
     "modifiers": [],
-    "price": 2450,
+    "price": 2710,
     "proficient": true,
     "properties": {
       "aeon": false,
@@ -167,7 +158,7 @@
       "modal": false,
       "necrotic": false,
       "nonlethal": false,
-      "one": true,
+      "one": false,
       "operative": true,
       "penetrating": false,
       "polarize": false,
@@ -195,21 +186,19 @@
       "throttle": false,
       "thrown": false,
       "trip": false,
-      "two": false,
+      "two": true,
       "underwater": false,
       "unwieldy": false,
       "variantBoost": false,
       "wideLine": false
     },
     "quantity": 1,
-    "quantityPerPack": 1,
     "range": {
       "additional": "",
       "per": "",
       "units": null,
       "value": null
     },
-    "rollNotes": "",
     "save": {
       "type": "",
       "dc": null,
@@ -217,7 +206,6 @@
     },
     "source": "",
     "special": "",
-    "specialMaterials": {},
     "target": {
       "type": "",
       "value": ""
@@ -232,6 +220,6 @@
       "value": 0
     },
     "weaponCategory": "plasma",
-    "weaponType": "basicM"
+    "weaponType": "advancedM"
   }
 }
