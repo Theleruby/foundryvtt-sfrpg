@@ -1,13 +1,13 @@
 {
-  "_id": "y7jCvzzeoZJ5HMeq",
-  "name": "Red Star Plasma Kukri",
+  "_id": "8ghVwTezPApkBFeb",
+  "name": "Plasma Kukri, Yellow Star",
   "type": "weapon",
   "_stats": {
     "coreVersion": 12,
     "systemId": "sfrpg",
     "systemVersion": "0.28.0"
   },
-  "img": "systems/sfrpg/icons/default/bolter-gun.svg",
+  "img": "systems/sfrpg/icons/equipment/weapons/plasma-kukri-yellow.webp",
   "system": {
     "type": "",
     "ability": "str",
@@ -24,7 +24,6 @@
     "ammunitionType": "charge",
     "area": {
       "effect": "",
-      "shapable": false,
       "shape": "",
       "units": null,
       "value": null
@@ -57,8 +56,6 @@
     "chatFlavor": "",
     "container": {
       "contents": [],
-      "includeContentsInWealthCalculation": 1,
-      "isOpen": true,
       "storage": [
         {
           "type": "slot",
@@ -66,7 +63,7 @@
             "fusion"
           ],
           "affectsEncumbrance": true,
-          "amount": 4,
+          "amount": 7,
           "subtype": "fusion",
           "weightProperty": "level"
         },
@@ -89,7 +86,7 @@
     "damage": {
       "parts": [
         {
-          "formula": "1d4",
+          "formula": "1d6",
           "operator": "and",
           "types": {
             "electricity": true,
@@ -98,11 +95,8 @@
         }
       ]
     },
-    "damageNotes": "",
     "description": {
       "chat": "",
-      "gmnotes": "",
-      "short": "",
       "unidentified": "",
       "value": ""
     },
@@ -113,14 +107,11 @@
     },
     "equippable": true,
     "equipped": false,
-    "equippedBulkMultiplier": 1,
     "formula": "",
     "identified": true,
-    "isActive": null,
-    "isEquipment": true,
-    "level": 4,
+    "level": 7,
     "modifiers": [],
-    "price": 2450,
+    "price": 5400,
     "proficient": true,
     "properties": {
       "aeon": false,
@@ -207,14 +198,12 @@
       "wideLine": false
     },
     "quantity": 1,
-    "quantityPerPack": 1,
     "range": {
       "additional": "",
       "per": "",
       "units": null,
       "value": null
     },
-    "rollNotes": "",
     "save": {
       "type": "",
       "dc": null,
@@ -222,7 +211,6 @@
     },
     "source": "",
     "special": "",
-    "specialMaterials": {},
     "target": {
       "type": "",
       "value": ""
