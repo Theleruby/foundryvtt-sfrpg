@@ -50,12 +50,14 @@
                         <li class="box-header flexrow">
                             <label></label>
                             <label>{{localize "SFRPG.StarshipSheet.Header.Value"}}</label>
+                            <label style="flex:0">&nbsp;&nbsp;&nbsp;&nbsp;</label>
                             <label>{{localize "SFRPG.StarshipSheet.Header.Max"}}</label>
                         </li>
                         <li class="flexrow" data-tooltip="{{ localize "SFRPG.StarshipSheet.Attributes.Power" }}<br/>@attributes.power.value<br/>@attributes.power.max<br/><br/>{{ localize "SFRPG.StarshipSheet.Attributes.PowerConsumption" }}:<br/>{{#each system.attributes.power.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
                             {{#if hasPower}}
                             <label>{{localize "SFRPG.StarshipSheet.Header.PCU"}}</label>
                             <label>{{system.attributes.power.value}}</label>
+                            <label style="flex:0">/</label>
                             <label>{{system.attributes.power.max}}</label>
                             {{else}}
                             <label class="error" style="flex: 3; font-size: 12px;">{{localize "SFRPG.StarshipSheet.Attributes.PowerMissing"}}</label>
@@ -64,6 +66,7 @@
                         <li class="flexrow" data-tooltip="{{ localize "SFRPG.StarshipSheet.Attributes.BuildPoints" }}<br/>@attributes.bp.value<br/>@attributes.bp.max<br/><br/>{{ localize "SFRPG.StarshipSheet.Attributes.BuildPointsUsage" }}:<br/>{{#each system.attributes.bp.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
                             <label>{{localize "SFRPG.StarshipSheet.Header.BP"}}</label>
                             <label>{{system.attributes.bp.value}}</label>
+                            <label style="flex:0">/</label>
                             <label>{{system.attributes.bp.max}}</label>
                         </li>
                     </ol>
