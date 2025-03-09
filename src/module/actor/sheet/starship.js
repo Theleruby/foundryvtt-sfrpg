@@ -497,7 +497,7 @@ export class ActorSheetSFRPGStarship extends ActorSheetSFRPG {
             } else if (itemData.weaponType === "ecm") { // If the weapon is an ECM weapon and not an NPC, use Computers ranks + Int (NPC ECM weapons still use gunnery)
                 parts = ["@scienceOfficer.skills.com.ranks", "@scienceOfficer.abilities.int.mod"];
             } else { // If not an ECM weapon and not an NPC, use BAB/Piloting + Dex
-                parts = ["max(@gunner.attributes.baseAttackBonus.value, @gunner.skills.pil.ranks)", "@gunner.abilities.dex.mod"];
+                parts = ["max(@gunner.attributes.baseAttackBonus.value, @gunner.npcBonus.gunnery.attack.mod, @gunner.skills.pil.ranks)", "@gunner.abilities.dex.mod"];
             }
 
             const formula = parts.join("+");

@@ -1,0 +1,90 @@
+<div style="padding: 0px 8px;">
+	<div class="bubble">
+		<h3 class="bubble-header">{{ localize "SFRPG.ActorSheet.Bonuses.AttackDamage" }}</h3>
+		<div class="bubble-info">
+			<p>{{ localize "SFRPG.ActorSheet.Bonuses.Desc1" }}</p>
+			<p>{{ localize "SFRPG.ActorSheet.Bonuses.Desc2" }}</p>
+			<p>{{ localize "SFRPG.ActorSheet.Bonuses.Desc3" }}</p>
+			<p>{{ localize "SFRPG.ActorSheet.Bonuses.Desc4" }}</p>
+			<div class="form-group npc-bonuses-header">
+				<label style="flex:4">
+				</label>
+				<div class="form-fields">
+					<span data-tooltip="{{ localize "SFRPG.ActorSheet.Bonuses.AttackBonusTooltip" }}">{{ localize "SFRPG.ActorSheet.Bonuses.AttackBonus" }}</span>
+				</div>
+				<div class="form-fields">
+					<span data-tooltip="{{ localize "SFRPG.ActorSheet.Bonuses.DamageBonusTooltip" }}">{{ localize "SFRPG.ActorSheet.Bonuses.DamageBonus" }}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label style="flex:4">
+					{{ localize "SFRPG.ActorSheet.Bonuses.Base" }}
+				</label>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.base.attack.value" value="{{system.npcBonus.base.attack.value}}" data-tooltip="@npcBonus.base.attack.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.base.attack.mod">{{numberFormat system.npcBonus.base.attack.mod decimals=0 sign=true}}</p>
+				</div>
+				<div class="form-fields">
+				</div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<label style="flex:4">
+					{{ localize "SFRPG.ActorSheet.Bonuses.Standard" }}
+				</label>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.standard.attack.value" value="{{system.npcBonus.standard.attack.value}}" data-tooltip="@npcBonus.standard.attack.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.standard.attack.mod">{{numberFormat system.npcBonus.standard.attack.mod decimals=0 sign=true}}</p>
+				</div>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.standard.damage.value" value="{{system.npcBonus.standard.damage.value}}" data-tooltip="@npcBonus.standard.damage.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.standard.damage.mod">{{numberFormat system.npcBonus.standard.damage.mod decimals=0 sign=true}}</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label style="flex:4">
+					{{ localize "SFRPG.ActorSheet.Bonuses.Gunnery" }}
+				</label>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.gunnery.attack.value" value="{{system.npcBonus.gunnery.attack.value}}" data-tooltip="@npcBonus.gunnery.attack.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.gunnery.attack.mod">{{numberFormat system.npcBonus.gunnery.attack.mod decimals=0 sign=true}}</p>
+				</div>
+				<div class="form-fields">
+				</div>
+			</div>
+			<hr/>
+			{{#each (sfrpg "weaponTypes") as |label type|}}
+			{{#with (lookup ../system.npcBonus type) as |bonus|}}
+			<div class="form-group">
+				<label style="flex:4">
+					{{label}}
+				</label>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.{{type}}.attack.value" value="{{bonus.attack.value}}" data-tooltip="@npcBonus.{{type}}.attack.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.{{type}}.attack.mod">{{numberFormat bonus.attack.mod decimals=0 sign=true}}</p>
+				</div>
+				<div class="form-fields">
+					{{#if (ne type "grenade")}}
+					<input type="text" name="system.npcBonus.{{type}}.damage.value" value="{{bonus.damage.value}}" data-tooltip="@npcBonus.{{type}}.damage.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.{{type}}.damage.mod">{{numberFormat bonus.damage.mod decimals=0 sign=true}}</p>
+					{{/if}}
+				</div>
+			</div>
+			{{/with}}
+			{{/each}}
+			<div class="form-group">
+				<label style="flex:4">
+					{{ localize "SFRPG.ActorSheet.Bonuses.Equipment" }}
+				</label>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.equipment.attack.value" value="{{system.npcBonus.equipment.attack.value}}" data-tooltip="@npcBonus.equipment.attack.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.equipment.attack.mod">{{numberFormat system.npcBonus.equipment.attack.mod decimals=0 sign=true}}</p>
+				</div>
+				<div class="form-fields">
+					<input type="text" name="system.npcBonus.equipment.damage.value" value="{{system.npcBonus.equipment.damage.value}}" data-tooltip="@npcBonus.equipment.damage.value" data-dtype="Number" />
+					<p data-tooltip="@npcBonus.equipment.damage.mod">{{numberFormat system.npcBonus.equipment.damage.mod decimals=0 sign=true}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

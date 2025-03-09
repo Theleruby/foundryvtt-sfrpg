@@ -419,6 +419,10 @@ export class ActorSheetSFRPG extends ActorSheet {
             if (Number.isNumeric(itemData.attackBonus) && itemData.attackBonus !== 0) parts.push("@item.attackBonus");
             if (abl) parts.push(`@abilities.${abl}.mod`);
             if (["character", "drone"].includes(actor.type)) parts.push("@attributes.baseAttackBonus.value");
+            if (actor.type === "npc2" && ["weapon", "equipment"].includes(item.type)) {
+                const npcAttackBonusType = item.system.weaponType ?? item.type === "equipment" ? "equipment" : "standard";
+                parts.push(`@npcBonus.${npcAttackBonusType}.attack.mod`);
+            }
             if (isWeapon) {
                 const procifiencyKey = SFRPG.weaponTypeProficiency[item.system.weaponType];
                 const proficient = itemData.proficient || actor?.system?.traits?.weaponProf?.value?.includes(procifiencyKey);
@@ -462,8 +466,13 @@ export class ActorSheetSFRPG extends ActorSheet {
     static getDamageString(item) {
         try {
             const isWeapon = ["weapon", "shield"].includes(item.type);
-            const formula = item.system.damage.parts[0].formula;
+            let formula = item.system.damage.parts[0].formula;
             if (!formula) throw ("No damage formula, deferring to default string");
+
+            if (item.actor.type === "npc2" && ["weapon", "equipment"].includes(item.type) && ["mwak", "rwak"].includes(item.system.actionType)) {
+                const npcDamageBonusType = item.system.weaponType ?? item.type === "equipment" ? "equipment" : "standard";
+                formula += ` + @npcBonus.${npcDamageBonusType}.damage.mod`;
+            }
 
             let appropriateMods = item.getAppropriateDamageModifiers(isWeapon);
             // Remove situational modifiers

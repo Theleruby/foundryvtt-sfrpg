@@ -107,6 +107,21 @@
                 "Weight": "Weight",
                 "WeightPlaceholder": "e.g. 130 lbs"
             },
+            "Bonuses": {
+                "AttackDamage": "Attack & Damage",
+                "AttackBonus": "Attack Bonus",
+                "AttackBonusTooltip": "Attack bonus applied to melee and ranged weapon attack rolls for this type of weapon",
+                "Base": "Base",
+                "DamageBonus": "Primary Damage Bonus",
+                "DamageBonusTooltip": "Damage bonus applied to melee and ranged weapon damage rolls for this type of weapon's primary damage section",
+                "Desc1": "Bonuses configured in this section will apply to most weapon attacks and weapon damage rolls. They apply to both natural and equippable weapons, as well as other equipment with a weapon (such as power armor), but not to spells or feats. You can configure these bonuses if you want to avoid having to modify weapon items that you later want to drop as loot.",
+                "Desc2": "The base value will be added to each of the other configured values to create a combined modifier. The standard value works similarly, but only gets added to the modifiers for weapons that can be used in standard combat (melee weapons, ranged weapons and armor).",
+                "Desc3": "The gunnery attack bonus is treated like a player's BAB for calculating gunnery attack rolls (if the number of piloting ranks is greater, it will be used instead).",
+                "Desc4": "Note that the damage of gunnery and grenade weapons isn't typically impacted by the creature using the weapon, so the damage bonuses of these weapons are not configurable here (they get overridden to 0).",
+                "Equipment": "Equipment",
+                "Gunnery": "Gunnery",
+                "Standard": "Standard"
+            },
             "Features": {
                 "Categories": {
                     "ActiveFeats": "Active Features",
@@ -383,6 +398,7 @@
         "BaseAttackBonusTitle": "Base Attack Bonus",
         "Biography": "Biography",
         "Biotech": "Biotech",
+        "Bonuses": "Bonuses",
         "Browsers": {
             "AlienArchiveBrowser": {
                 "BrowserFilterAlignment": "Filter by Alignment",

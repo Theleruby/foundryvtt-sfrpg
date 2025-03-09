@@ -15,6 +15,7 @@ export const preloadHandlebarsTemplates = async function() {
         "systems/sfrpg/templates/actors/parts/actor-inventory.hbs",
         "systems/sfrpg/templates/actors/parts/actor-modifiers.hbs",
         "systems/sfrpg/templates/actors/parts/actor-movement-element.hbs",
+        "systems/sfrpg/templates/actors/parts/actor-npc2-bonuses.hbs",
         "systems/sfrpg/templates/actors/parts/actor-spellbook.hbs",
         "systems/sfrpg/templates/actors/parts/actor-traits.hbs",
         "systems/sfrpg/templates/actors/parts/actor-vehicle-system-item.hbs",
