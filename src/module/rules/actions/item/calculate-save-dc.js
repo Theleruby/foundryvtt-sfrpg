@@ -52,6 +52,10 @@ export default function(engine) {
                     }
                 }
 
+                let formula = { dcFormula: dcFormula };
+                Hooks.callAll("calculateSaveDC", {actor: actor, item: item, formula: formula});
+                dcFormula = formula.dcFormula;
+
                 let computedSave = false;
 
                 if (dcFormula) {
