@@ -548,7 +548,7 @@
           "gmnotes": "",
           "short": "",
           "unidentified": "",
-          "value": "<p>If a thastertoad hits with its tongue attack, it deals the listed damage. If the thastertoad’s attack roll successfully hits the target’s KAC + 4, the thastertoad automatically grapples the target (this takes no action); if it hits the target’s KAC + 13, it instead pins the target. The thastertoad doesn’t need to have a limb free to perform this grapple as long as it can make a tongue attack. If the thastertoad moves farther than 10 feet from the grappled target or makes a tongue attack against a different target, the grappled condition ends immediately. The thastertoad can attempt to renew the condition on the target by attempting a grapple combat maneuver check, using its melee attack die roll modifier of +9.</p>"
+          "value": "<p>If a thastertoad hits with its tongue attack, it deals the listed damage. If the thastertoad’s attack roll successfully hits the target’s KAC + 4, the thastertoad automatically grapples the target (this takes no action); if it hits the target’s KAC + 9, it instead pins the target. The thastertoad doesn’t need to have a limb free to perform this grapple as long as it can make a tongue attack. If the thastertoad moves farther than 10 feet from the grappled target or makes a tongue attack against a different target, the grappled condition ends immediately. The thastertoad can attempt to renew the condition on the target by attempting a grapple combat maneuver check, using its melee attack die roll modifier of +9.</p>"
         },
         "descriptors": [],
         "details": {

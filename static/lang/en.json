@@ -8,7 +8,7 @@
         "ACTooltipNotProficientMod": "Penalty for armor non-proficiency: {profMod}",
         "ACTooltipNotProficientShield": "Penalty for shield non-proficiency: {profMod}",
         "ACTooltipShieldACMod": "Shield Modifier: {shield} ({name})",
-        "ACvsCombatManeuversLabel": "KAC + 8",
+        "ACvsCombatManeuversLabel": "KAC + 4",
         "ACvsCombatManeuversTitle": "AC vs Combat Maneuvers",
         "AbilityActivationTypesDay": "Day",
         "AbilityActivationTypesFull": "Full Action",
@@ -429,7 +429,7 @@
                 "WeaponType": "Weapon Type"
             }
         },
-        "CMDBaseTooltip": "Base: 8",
+        "CMDBaseTooltip": "Base: 4",
         "CMDKACModTooltip": "KAC: {kac}",
         "CMDModiferTooltip": "{type} Bonus: {mod} ({source})",
         "CancelButtonLabel": "Cancel",
@@ -1505,7 +1505,7 @@
                     "ChatMessage": " against {actionTarget}",
                     "EAC": "EAC",
                     "KAC": "KAC",
-                    "KAC8": "KAC +8",
+                    "KAC8": "KAC +4",
                     "None": "No target",
                     "Other": "Other",
                     "StarshipAC": "AC",

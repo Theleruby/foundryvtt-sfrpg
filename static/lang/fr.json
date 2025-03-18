@@ -8,7 +8,7 @@
         "ACTooltipNotProficientMod": "Malus de non-maîtrise d'armure : {profMod}",
         "ACTooltipNotProficientShield": "Malus de non-maîtrise de bouclier : {profMod}",
         "ACTooltipShieldACMod": "Modificateur de bouclier: {shield} ({name})",
-        "ACvsCombatManeuversLabel": "CAC + 8",
+        "ACvsCombatManeuversLabel": "CAC + 4",
         "ACvsCombatManeuversTitle": "AC VS Manoeuvres de combat",
         "AbilityActivationTypesDay": "Jour",
         "AbilityActivationTypesFull": "Action C.",
@@ -429,7 +429,7 @@
                 "WeaponType": "Type d'arme"
             }
         },
-        "CMDBaseTooltip": "Base: 8",
+        "CMDBaseTooltip": "Base: 4",
         "CMDKACModTooltip": "CAC: {kac}",
         "CMDModiferTooltip": "{type} Rebonds: {mod} ({source})",
         "CancelButtonLabel": "Annuler",
@@ -1505,7 +1505,7 @@
                     "AC15": "CA 15",
                     "EAC": "CAE",
                     "KAC": "CAC",
-                    "KAC8": "CAC +8",
+                    "KAC8": "CAC +4",
                     "None": "Pas de cible",
                     "Other": "Autre",
                     "StarshipAC": "CA",

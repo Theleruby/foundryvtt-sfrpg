@@ -8,7 +8,7 @@
         "ACTooltipNotProficientMod": "Malus für fehlenden Umgang mit Rüstung: {profMod}",
         "ACTooltipNotProficientShield": "Malus für fehlenden Umgang mit Schilden: {profMod}",
         "ACTooltipShieldACMod": "Schildmodifikator: {shield} ({name})",
-        "ACvsCombatManeuversLabel": "KRK + 8",
+        "ACvsCombatManeuversLabel": "KRK + 4",
         "ACvsCombatManeuversTitle": "RK gegen Kampfmanöver",
         "AbilityActivationTypesDay": "Tag",
         "AbilityActivationTypesFull": "Volle Aktion",
@@ -429,7 +429,7 @@
                 "WeaponType": "Waffenart"
             }
         },
-        "CMDBaseTooltip": "Grundwert: 8",
+        "CMDBaseTooltip": "Grundwert: 4",
         "CMDKACModTooltip": "KRK: {kac}",
         "CMDModiferTooltip": "{type} Bonus: {mod} ({source})",
         "CancelButtonLabel": "Abbrechen",
@@ -1511,7 +1511,7 @@
                     "ChatMessage": " gegen {actionTarget}",
                     "EAC": "ERK",
                     "KAC": "KRK",
-                    "KAC8": "KRK +8",
+                    "KAC8": "KRK +4",
                     "None": "Kein Ziel",
                     "Other": "Andere",
                     "StarshipAC": "RK",

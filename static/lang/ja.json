@@ -8,7 +8,7 @@
         "ACTooltipNotProficientMod": "Penalty for armor non-proficiency: {profMod}",
         "ACTooltipNotProficientShield": "Penalty for shield non-proficiency: {profMod}",
         "ACTooltipShieldACMod": "Shield Modifier: {shield} ({name})",
-        "ACvsCombatManeuversLabel": "KAC + 8",
+        "ACvsCombatManeuversLabel": "KAC + 4",
         "ACvsCombatManeuversTitle": "VS 戦技",
         "AbilityActivationTypesDay": "日",
         "AbilityActivationTypesFull": "全力ｱｸｼｮﾝ",
@@ -429,7 +429,7 @@
                 "WeaponType": "Weapon Type"
             }
         },
-        "CMDBaseTooltip": "基本: 8",
+        "CMDBaseTooltip": "基本: 4",
         "CMDKACModTooltip": "KAC: {kac}",
         "CMDModiferTooltip": "{type} ボーナス: {mod} ({source})",
         "CancelButtonLabel": "キャンセル",
@@ -1511,7 +1511,7 @@
                     "ChatMessage": " against {actionTarget}",
                     "EAC": "EAC",
                     "KAC": "KAC",
-                    "KAC8": "KAC +8",
+                    "KAC8": "KAC +4",
                     "None": "No target",
                     "Other": "Other",
                     "StarshipAC": "AC",

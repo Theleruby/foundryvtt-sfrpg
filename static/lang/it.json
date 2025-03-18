@@ -8,7 +8,7 @@
         "ACTooltipNotProficientMod": "Malus competenza nelle Armature : {profMod}",
         "ACTooltipNotProficientShield": "Malus competenza negli Scudi : {profMod}",
         "ACTooltipShieldACMod": "Modificatore dello Scudo: {shield} ({name})",
-        "ACvsCombatManeuversLabel": "CAC + 8",
+        "ACvsCombatManeuversLabel": "CAC + 4",
         "ACvsCombatManeuversTitle": "CA vs Manovre di Combattimento",
         "AbilityActivationTypesDay": "Giorno",
         "AbilityActivationTypesFull": "Azione Completa",
@@ -429,7 +429,7 @@
                 "WeaponType": "Tipo Arma"
             }
         },
-        "CMDBaseTooltip": "Base: 8",
+        "CMDBaseTooltip": "Base: 4",
         "CMDKACModTooltip": "CAC: {kac}",
         "CMDModiferTooltip": "{type} Rebonds: {mod} ({source})",
         "CancelButtonLabel": "Annulla",
@@ -1511,7 +1511,7 @@
                     "ChatMessage": " against {actionTarget}",
                     "EAC": "EAC",
                     "KAC": "KAC",
-                    "KAC8": "KAC +8",
+                    "KAC8": "KAC +4",
                     "None": "No target",
                     "Other": "Other",
                     "StarshipAC": "AC",
