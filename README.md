@@ -1,51 +1,65 @@
-# Starfinder
+# SFRPG
+This is my personal fork of the Starfinder system definition for Foundry Virtual Tabletop, as used in roleplaying sessions at The Ruby Palace. This version is forked from a development build of [foundryvtt-starfinder](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/) somewhere in-between versions 0.27.1 and 0.28.0.
 
-This is a game system definition of the Starfinder 1st edition RPG for the awesome [Foundry Virtual Tabletop](http://foundryvtt.com/).
+## Compatibility
 
-## Join the discussion
+Foundry v12. This is tested to work correctly on v12.331.
 
-If you have quesions or just want to chat about all things Starfinder, then join us on the official FoundryVTT discord server [here](https://discord.gg/foundryvtt).
+## Objectives of the fork
 
-## Version support table
-If you wish to use Starfinder with older versions of FoundryVTT, the following table will help:
-- FoundryVTT v0.5.5 or earlier: The latest supported Starfinder system version is v0.2.2
-- FoundryVTT v0.5.6 till v0.6.6: The latest supported Starfinder system version is v0.5.1
-- FoundryVTT v0.7.0 till v0.7.10: The latest supported Starfinder system version is v0.10.0.0
-- FoundryVTT v0.8.0 till v9.269: The latest supported Starfinder system version is v0.18.3
-- FoundryVTT v9.269 till v9.280: The latest supported Starfinder system version is v0.19.2
-- FoundryVTT v10.282 till v10.291: The latest supported Starfinder system version is v0.23.0
-- FoundryVTT v11.299 till v11.315: The latest supported Starfinder system version is v0.25.3
-- FoundryVTT v12 and up: The latest supported Starfinder system version is [the current version](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/releases/latest)
+The official Starfinder system definition for Foundry is an early alpha version filled with a lot of bugs, mistakes and questionable design choices. The purpose of this fork is to allow me to fix issues promptly so that I can take advantage of those fixes immediately in my sessions (as I can't put my campaign on hold every time there's a bug, which is regularly). It is also a place where I can add homebrew rules, extend the module with custom hooks, implement experimental features, etc.
 
-Please keep in mind the Starfinder system identifier changed with Starfinder system version v0.3 from 'starfinder' to 'sfrpg'. If you have a world older than this version, you will have to update your world.json file to reflect this, or your world will not load.
+This fork will probably fall quite far behind the official version at times, as I don't really have capacity to keep it in line with the development branch. It is also likely to contain some bug fixes that have not been PR'd upstream yet, because I don't really like contributing to open source projects (it takes a toll on my mental health, which is something that I try to avoid).
 
-## Installation
-1. Download the current release that is compatible with your version of Foundry VTT from the [releases tab](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/releases). Unzip the files and place them in the data folder for your installation. See [https://foundryvtt.com/article/configuration#where-user-data](https://foundryvtt.com/article/configuration#where-user-data) for more details about where your data is stored for Foundry. Make sure to put the files in a folder named `sfrpg` in the `systems` directory. _NOTE: This is no longer the perfered method of installing modules. Please use the module browser within foundry._
-2. Copy this link and use Foundry's Module manager to install it: `https://raw.githubusercontent.com/foundryvtt-starfinder/foundryvtt-starfinder/master/src/system.json`
+### Short term objectives
+* Bug fixes to the core
+* Corrections to the existing content in the compendium
+* Adding missing content to the compendium
+* Integration of homebrew rules changes into the core (e.g. changing KAC+8 to KAC+4)
+* Adding a custom weapon attack and damage roll bonus system for NPCs
+* Adding hooks for my extension module, [rubicon-sfrpg](https://github.com/theleruby/rubicon-sfrpg/)
 
-## Use
+### Long term objectives
+* Adding icons and artwork to most things which currently don't have any (this may end up in a private extension module to avoid copyright issues)
+* Extending the system to support third-party OGL products that I own
 
-The Starfinder FoundryVTT system works similar to most of the other systems available on FoundryVTT, so if you have experience with FoundryVTT overall, you should have little difficulty using the Starfinder system. There are a few notable differences in the implementation details, either because of the way the system dictates things should function, or because of quality of life changes that have been integrated.
+## Current status
 
-### Skills
-Skills in Starfinder are more dynamic than they are in D&D 5e. Skills can have skill ranks and other miscellaneous modifiers applied to them. To view more detailed information on skills you can right click on the skill name. This will bring up an edit dialog where you can edit properties. You can also have multiple profession skills, all tied to different specialities or fields of study. You can add new ones by clicking the "Add Profession" button at the bottom of the skills panel. This will bring up a similar dialog where you can specify the linked ability, the number of ranks in the skill, any miscellaneous modifiers that might apply, and the name of the profession or speciality.
+Development on this fork is slow. I am currently only putting in fixes required for my campaign, as I don't want to accidentally break everything and disrupt the sessions. I normally merge upstream changes when my roleplaying group goes on hiatus or is preparing for a new adventure.
 
-### Ability Score Increases
-Because ability score increases in Starfinder work a little different than other systems, there is an 'asi' item you can add to your character where you select the ability scores to increase. This properly automates on the character sheet in the right order of operations, meaning that personal upgrades or ability score penalties, damages, and drains do not affect your ASI gains. The base ability score box on the player character sheet should include your original, level 1, original, rolled/point-bought/stat-array'ed score, before Race and Theme bonuses are applied.
+## Support
 
-### Inventory
-The inventory in Starfinder has a few quality of life features. If you right-click a stack of items it will split the stack in half. If you drop identical items on top of each other, the stacks will merge. If you hold down the shift key when dropping an item, the game will ask you how many of the item you wish to drop. If you drag and drop an item onto another item that can contain it, such as an armor upgrade on an armor, the armor upgrade will be nested under the container.
+I don't really intend for anyone else to use this fork, and I don't plan to provide any support for it. My primary priority is just for me and my friends to play Starfinder and to have a good time. I can nevertheless be contacted via Discord (@Theleruby) if you want to discuss this fork with me.
 
-### Combat
-Combat in Starfinder can vary from regular, character to character combat, but it also includes vehicle chases and starship combat. To accomodate this, there is a combat type selector underneath your combat encounter when you create it, allowing you to switch combat types.
+## How to use the fork
 
-### Modifiers
-Instead of the Active Effects, as introduced in FoundryVTT v0.7, Starfinder uses what is called Modifiers, which was built before FoundryVTT introduced Active Effects. The Modifiers system works similar, in that you can specify attributes to modify, along with the amount to modify it by. These amounts can be numbers, but also formula, so for example, "2", "1d6", and "@details.level.value" are all valid values. Finally, you can set a modifier type to be either "constant" or "roll formula". A constant modifier is always active as long as the modifier is enabled, a roll formula will show up on the appropriate roll made, allowing the player to choose what modifiers affect them at that point.
+If you really really really must adamantly use my fork instead of the official project, here's how you get it working:
 
-## Bugs and Issues
-
-If you have any issues or concerns, please don't hesitate to open an issue on the tracker [https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/issues](https://github.com/foundryvtt-starfinder/foundryvtt-starfinder/issues) or reach out to us on the Foundry discord server: #starfinder, where the community can help out.
+* You need a Foundry-compatible version of Node.js on PATH
+* Use your favourite git-compatible source control tool to pull down this repo
+* Create a folder called dist in the root of the project
+* npm ci
+* npm run cook
+* Copy everything in the "dist" folder to the "systems/sfrpg" path of your Foundry installation
 
 ## Legal
 
+* Game rules, mechanics, and the majority of the compendium content is licensed under the Open Game License version 1.0a (see "OGL" file).
+* Permission to develop packages for Foundry is granted under the Limited License for Package Development (see https://foundryvtt.com/article/license/).
+* Javascript, HTML and CSS code is licensed under the MIT License (see "LICENSE" file).
+* Product Identity owned by Paizo (as defined under section 1(e) of the OGL) is used under the terms of the Paizo Community Use Policy, where allowed (see below). A duplicate of this policy is included in the repository (see "PAIZO-CUP" file).
+* Some content may not be covered by any of the above; the use of this content is assumed to be covered under fair use and consumer protection laws.
+
+I have kept this fork public in an endeavour to unofficially support the project. In the event of any legal complaints it will be made private.
+
+### Paizo Community Use Policy
 _This game system definition uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This game system definition is not published, endorsed, or specifically approved by Paizo Inc. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Inc. and Paizo products, please visit paizo.com._
+
+## If you like Starfinder
+
+Please support the publishers of Starfinder and its supplementary third-party material by purchasing the game content included in this project from your favourite store (Amazon, Dungeonland, DriveThruRPG, etc).
+
+## Other resources
+
+* Archives of Nethys - https://www.aonsrd.com/
+* Starjammer SRD - https://www.starjammersrd.com/
