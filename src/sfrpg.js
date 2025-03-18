@@ -10,7 +10,7 @@
 // Required for Vite to build Less files
 import './less/sfrpg.less';
 
-import { ActorItemHelper, initializeRemoteInventory } from "./module/actor/actor-inventory-utils.js";
+import { ActorItemHelper, initializeRemoteInventory, getItemContainer } from "./module/actor/actor-inventory-utils.js";
 import { ActorSFRPG } from "./module/actor/actor.js";
 import { SFRPGDamage, SFRPGHealingSetting } from "./module/actor/mixins/actor-damage.js";
 import { ActorSheetSFRPG } from "./module/actor/sheet/base.js";
@@ -84,6 +84,8 @@ import isObject from './module/utils/is-object.js';
 const { Actors, Items } = foundry.documents.collections;
 const { ActorSheet, ItemSheet } = foundry.appv1.sheets;
 
+import StackModifiers from "./module/rules/closures/stack-modifiers.js";
+
 let initTime = null;
 
 /* -------------------------------------------- */
@@ -125,6 +127,7 @@ const moduleStructure = {
     documents: { ActorSFRPG, ItemSFRPG, CombatSFRPG },
     entities: { ActorSFRPG, ItemSFRPG },
     generateUUID,
+    getItemContainer,
     // Document browsers
     getSpellBrowser,
     getEquipmentBrowser,
@@ -143,6 +146,7 @@ const moduleStructure = {
     SFRPGModifier,
     SFRPGModifierType,
     SFRPGModifierTypes,
+    StackModifiers,
     timedEffects: new Map(),
 
     // Namespace style
