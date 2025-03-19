@@ -2354,6 +2354,7 @@ SFRPG.defaultItemIcons = {
     "equipment": "kevlar-vest.svg",
     "fusion": "lightning-spanner.svg",
     "goods": "hand-truck.svg",
+    "quest": "diamond-trophy.svg",
     "hybrid": "energise.svg",
     "magic": "magick-trick.svg",
     "shield": "energy-shield.svg",
