@@ -1205,6 +1205,25 @@ SFRPG.combatRoleImages = {
     "spellcaster": "systems/sfrpg/images/cup/gameplay/spellcaster.webp"
 };
 
+SFRPG.npcCombatBonusTypes = {
+    "high": "SFRPG.NPCSheet.CombatBonuses.High",
+    "low": "SFRPG.NPCSheet.CombatBonuses.Low",
+    "special": "SFRPG.NPCSheet.CombatBonuses.Special"
+};
+
+SFRPG.npcCombatBonusWeaponTypes = {
+    "basicM": "SFRPG.WeaponTypesBasicMelee",
+    "advancedM": "SFRPG.WeaponTypesAdvMelee",
+    "smallA": "SFRPG.WeaponTypesSmallArms",
+    "longA": "SFRPG.WeaponTypesLongArms",
+    "heavy": "SFRPG.WeaponTypesHeavy",
+    "sniper": "SFRPG.WeaponTypesSniper",
+    "grenade": "SFRPG.WeaponTypesGrenades",
+    "special": "SFRPG.WeaponTypesSpecial",
+    "equipment": "SFRPG.Items.Categories.Equipment",
+    "shield": "SFRPG.Items.Categories.Shields"
+};
+
 /* --------------------------------*
  * Starship properties and values *
  *--------------------------------*/

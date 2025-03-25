@@ -2099,6 +2099,21 @@
                     "GroupSizeTooltip": "The organization size goes from the smallest typical group (usually 1) to the largest typical group. This is used primarily by the alien browser to find creatures that match the group size filter."
                 }
             },
+            "CombatBonuses": {
+              "BaseModifier": "Base: {base}",
+              "DamageBonusApply": "Apply damage bonus",
+              "Description": "This page allows you to configure up to three different attack and damage bonuses which can be used by the NPC. When a bonus is applied to a weapon type, it acts the combined Base Attack Bonus + Ability Modifier for all weapons of that type when making attack rolls. The damage bonus will be added to all primary damage sections if checked.",
+              "High": "High",
+              "HighAttack": "High Attack",
+              "HighDamage": "High Damage",
+              "Low": "Low",
+              "LowAttack": "Low Attack",
+              "LowDamage": "Low Damage",
+              "Special": "Special",
+              "SpecialAttack": "Special Attack",
+              "SpecialDamage": "Special Damage",
+              "Title": "Bonuses"
+            },
             "Features": {
                 "Actions": "Actions",
                 "ActiveItems": "Active Feats",

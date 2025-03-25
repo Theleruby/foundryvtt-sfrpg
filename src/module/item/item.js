@@ -911,9 +911,17 @@ export class ItemSFRPG extends Mix(foundry.documents.Item).with(ItemActivationMi
         // Define Roll parts
         const parts = [];
 
-        if (Number.isNumeric(itemData.attackBonus) && itemData.attackBonus !== 0) parts.push("@item.attackBonus");
+        if (this.actor.type === "npc2" && ["weapon", "equipment", "shield"].includes(this.type)) {
+            const weaponType = this.type === "weapon" ? itemData.weaponType : this.type;
+            const bonusType = this.actor.system.details.combatBonuses[weaponType]?.type;
+            if (bonusType in CONFIG.SFRPG.npcCombatBonusTypes) {
+                abl = "";
+                parts.push(`@attributes.${bonusType}AttackBonus.total`);
+            }
+        }
         if (abl) parts.push(`@abilities.${abl}.mod`);
         if (["character", "drone"].includes(this.actor.type)) parts.push("@attributes.baseAttackBonus.value");
+        if (Number.isNumeric(itemData.attackBonus) && itemData.attackBonus !== 0) parts.push("@item.attackBonus");
         if (isWeapon) {
             const proficiencyKey = SFRPG.weaponTypeProficiency[this.system.weaponType];
             const proficient = itemData.proficient || this.actor?.system?.traits?.weaponProf?.value?.includes(proficiencyKey);
@@ -1359,6 +1367,20 @@ export class ItemSFRPG extends Mix(foundry.documents.Item).with(ItemActivationMi
         const parts = foundry.utils.deepClone(itemData.damage.parts);
         for (const part of parts) {
             part.isDamageSection = true;
+        }
+
+        if (this.actor.type === "npc2" && ["weapon", "equipment", "shield"].includes(this.type)) {
+            const weaponType = this.type === "weapon" ? itemData.weaponType : this.type;
+            const combatBonusData = this.actor.system.details.combatBonuses[weaponType];
+            const bonusType = combatBonusData?.type;
+            const applyDamageBonus = combatBonusData?.damage;
+            if (bonusType in CONFIG.SFRPG.npcCombatBonusTypes && applyDamageBonus) {
+                for (const part of parts) {
+                    if (part.isPrimarySection) {
+                        part.formula += ` + @attributes.${bonusType}DamageBonus.total`;
+                    }
+                }
+            }
         }
 
         let modifiers = this.getAppropriateDamageModifiers(isWeapon);

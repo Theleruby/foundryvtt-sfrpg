@@ -1,0 +1,79 @@
+<div class="combat-bonus-info">
+    <p>{{localize "SFRPG.NPCSheet.CombatBonuses.Description"}}</p>
+</div>
+<div class="flexrow">
+    <div class="combat-bonus-column">
+        <ul class="combat-bonuses flexrow">
+            <li class="combat-bonus" data-tooltip="<strong>{{ localize "SFRPG.NPCSheet.CombatBonuses.HighAttack" }}</strong><br/>@attributes.highAttackBonus.total<br/><br/>{{#each system.attributes.highAttackBonus.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
+                <h4 class="combat-bonus-name box-title">{{localize "SFRPG.NPCSheet.CombatBonuses.HighAttack"}}</h4>
+                <div class="combat-bonus-modifiers flexrow">
+                    <span class="bonus-mod"></span>
+                    <div class="bonus-center">{{numberFormat system.attributes.highAttackBonus.total decimals=0 sign=true}}</div>
+                    <input class="bonus-base" name="system.attributes.highAttackBonus.base" type="text" value="{{system.attributes.highAttackBonus.base}}" data-dtype="Number" placeholder="0"/>
+                </div>
+            </li>
+            <li class="combat-bonus" data-tooltip="<strong>{{ localize "SFRPG.NPCSheet.CombatBonuses.HighDamage" }}</strong><br/>@attributes.highDamageBonus.total<br/><br/>{{#each system.attributes.highDamageBonus.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
+                <h4 class="combat-bonus-name box-title">{{localize "SFRPG.NPCSheet.CombatBonuses.HighDamage"}}</h4>
+                <div class="combat-bonus-modifiers flexrow">
+                    <span class="bonus-mod"></span>
+                    <div class="bonus-center">{{numberFormat system.attributes.highDamageBonus.total decimals=0 sign=true}}</div>
+                    <input class="bonus-base" name="system.attributes.highDamageBonus.base" type="text" value="{{system.attributes.highDamageBonus.base}}" data-dtype="Number" placeholder="0"/>
+                </div>
+            </li>
+        </ul>
+        <ul class="combat-bonuses flexrow">
+            <li class="combat-bonus" data-tooltip="<strong>{{ localize "SFRPG.NPCSheet.CombatBonuses.LowAttack" }}</strong><br/>@attributes.lowAttackBonus.total<br/><br/>{{#each system.attributes.lowAttackBonus.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
+                <h4 class="combat-bonus-name box-title">{{localize "SFRPG.NPCSheet.CombatBonuses.LowAttack"}}</h4>
+                <div class="combat-bonus-modifiers flexrow">
+                    <span class="bonus-mod"></span>
+                    <div class="bonus-center">{{numberFormat system.attributes.lowAttackBonus.total decimals=0 sign=true}}</div>
+                    <input class="bonus-base" name="system.attributes.lowAttackBonus.base" type="text" value="{{system.attributes.lowAttackBonus.base}}" data-dtype="Number" placeholder="0"/>
+                </div>
+            </li>
+            <li class="combat-bonus" data-tooltip="<strong>{{ localize "SFRPG.NPCSheet.CombatBonuses.LowDamage" }}</strong><br/>@attributes.lowDamageBonus.total<br/><br/>{{#each system.attributes.lowDamageBonus.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
+                <h4 class="combat-bonus-name box-title">{{localize "SFRPG.NPCSheet.CombatBonuses.LowDamage"}}</h4>
+                <div class="combat-bonus-modifiers flexrow">
+                    <span class="bonus-mod"></span>
+                    <div class="bonus-center">{{numberFormat system.attributes.lowDamageBonus.total decimals=0 sign=true}}</div>
+                    <input class="bonus-base" name="system.attributes.lowDamageBonus.base" type="text" value="{{system.attributes.lowDamageBonus.base}}" data-dtype="Number" placeholder="0"/>
+                </div>
+            </li>
+        </ul>
+        <ul class="combat-bonuses flexrow">
+            <li class="combat-bonus" data-tooltip="<strong>{{ localize "SFRPG.NPCSheet.CombatBonuses.SpecialAttack" }}</strong><br/>@attributes.specialAttackBonus.total<br/><br/>{{#each system.attributes.specialAttackBonus.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
+                <h4 class="combat-bonus-name box-title">{{localize "SFRPG.NPCSheet.CombatBonuses.SpecialAttack"}}</h4>
+                <div class="combat-bonus-modifiers flexrow">
+                    <span class="bonus-mod"></span>
+                    <div class="bonus-center">{{numberFormat system.attributes.specialAttackBonus.total decimals=0 sign=true}}</div>
+                    <input class="bonus-base" name="system.attributes.specialAttackBonus.base" type="text" value="{{system.attributes.specialAttackBonus.base}}" data-dtype="Number" placeholder="0"/>
+                </div>
+            </li>
+            <li class="combat-bonus" data-tooltip="<strong>{{ localize "SFRPG.NPCSheet.CombatBonuses.SpecialDamage" }}</strong><br/>@attributes.specialDamageBonus.total<br/><br/>{{#each system.attributes.specialDamageBonus.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
+                <h4 class="combat-bonus-name box-title">{{localize "SFRPG.NPCSheet.CombatBonuses.SpecialDamage"}}</h4>
+                <div class="combat-bonus-modifiers flexrow">
+                    <span class="bonus-mod"></span>
+                    <div class="bonus-center">{{numberFormat system.attributes.specialDamageBonus.total decimals=0 sign=true}}</div>
+                    <input class="bonus-base" name="system.attributes.specialDamageBonus.base" type="text" value="{{system.attributes.specialDamageBonus.base}}" data-dtype="Number" placeholder="0"/>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="combat-bonus-weapon-types">
+        {{#each (sfrpg "npcCombatBonusWeaponTypes") as |label weaponType|}}
+            {{#with (lookup ../system.details.combatBonuses weaponType) as |bonusData|}}
+                <div class="form-group">
+                    <label>{{label}}</label>
+                    <select class="npc-combat-bonus-type" name="system.details.combatBonuses.{{weaponType}}.type">
+                        {{selectOption "" "" selected=(lookup bonusData "type")}}
+                        {{selectOptions (sfrpg "npcCombatBonusTypes") selected=(lookup bonusData "type")}}
+                    </select>
+                    <label class="checkbox">
+                        {{#if (ne weaponType "grenade")}}
+                            <input type="checkbox" name="system.details.combatBonuses.{{weaponType}}.damage" data-dtype="Boolean" {{checked (lookup bonusData "damage")}}/> {{ localize "SFRPG.NPCSheet.CombatBonuses.DamageBonusApply" }}
+                        {{/if}}
+                    </label>
+                </div>
+            {{/with}}
+        {{/each}}
+    </div>
+</div>
