@@ -1,4 +1,4 @@
-        <li class="item {{#if (not bigItem)}}small{{/if}}{{#if (eq item.type "container")}}container{{/if}}{{#if (eq item.type "effect")}}effect{{/if}} flexrow"
+        <li class="item {{#if (not bigItem)}}small{{/if}}{{#if (eq item.type "container")}}container{{/if}}{{#if (eq item.type "effect")}}effect{{/if}} {{#if item.system.trash}}trash{{/if}} flexrow"
             data-item-id="{{item._id}}" {{#if (eq item.type "effect")}}data-effect-uuid="{{item.timedEffect.uuid}}"{{/if}}>
             <div class="item-name flexrow {{#if (not disableRolling)}}rollable{{/if}}">
                 <div class="item-image {{#if (not bigItem)}}small{{/if}}" style="background-image: url({{item.img}})"></div>
@@ -92,6 +92,13 @@
                     <a class="item-control effect-toggle" {{createTippy title="SFRPG.ActorSheet.Modifiers.Tooltips.ToggleEffect" subtitle="SFRPG.ActorSheet.Modifiers.Tooltips.ToggleEffectTooltip"}}>{{#if item.system.enabled}}<i class="far fa-check-square">{{else}}<i class="far fa-square"></i>{{/if}}</i></a>
                 {{/if}}
                 <a class="item-control item-edit" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Edit"}}"><i class="fas fa-edit"></i></a>
+                {{#if isCharacter}}
+                    {{#if item.system.trash}}
+                        <a class="item-control item-trash" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Untrash"}}"><i class="fas fa-store-slash"></i></a>
+                    {{else}}
+                        <a class="item-control item-trash" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Trash"}}"><i class="fas fa-store"></i></a>
+                    {{/if}}
+                {{/if}}
                 <a class="item-control item-delete" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Delete"}}"><i class="fas fa-trash"></i></a>
             </div>
             {{/if}}

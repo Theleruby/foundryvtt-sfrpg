@@ -359,6 +359,9 @@ export class ActorSheetSFRPG extends foundry.appv1.sheets.ActorSheet {
         // Item Equipping
         html.find('.item .item-equip').click(event => this._onItemEquippedChange(event));
 
+        // Mark item as trash
+        html.find('.item .item-trash').click(event => this._onItemTrash(event));
+
         // Condition toggling
         html.find('.conditions input[type="checkbox"]').change(await this._onToggleConditions.bind(this));
 
@@ -900,6 +903,20 @@ export class ActorSheetSFRPG extends foundry.appv1.sheets.ActorSheet {
 
         item.update({
             ["system.equipped"]: !item.system.equipped
+        });
+    }
+
+    /**
+     * Handle toggling an item being marked as trash.
+     * @param {Event} event The originating click event
+     */
+    _onItemTrash(event) {
+        event.preventDefault();
+        const itemId = event.currentTarget.closest('.item').dataset.itemId;
+        const item = this.actor.items.get(itemId);
+
+        item.update({
+            ["system.trash"]: !item.system.trash
         });
     }
 

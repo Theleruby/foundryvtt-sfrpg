@@ -113,6 +113,9 @@ function computeCompoundWealthForItem(item, contents, depth = 1) {
     }
 
     let personalWealth = Number(itemData.price ?? 0);
+    if (itemData.trash) {
+        personalWealth = Math.floor(personalWealth / 10);
+    }
     if (personalWealth > 0) {
         if (!Number.isNaN(Number.parseInt(itemData.quantity))) {
             // Compute number of packs based on quantityPerPack, provided quantityPerPack is set to a value.

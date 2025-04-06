@@ -1276,6 +1276,7 @@
         "equippedBulkMultiplier": 1,
         "equippable": false,
         "identified": true,
+        "trash": false,
         "attributes": {
           "sturdy": false,
           "customBuilt": false,
