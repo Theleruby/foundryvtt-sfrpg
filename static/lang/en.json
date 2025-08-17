@@ -1578,6 +1578,8 @@
                 "AltRangeIncrement": "Alt Range Increment",
                 "Area": "Area",
                 "Duration": "Duration",
+                "Label": "Label",
+                "LabelTooltip": "Appears on the HUD when this item is activated. Leave blank to use the item name.",
                 "LimitedUses": "Limited Uses",
                 "Range": "Range",
                 "RangeIncrement": "Range Increment",

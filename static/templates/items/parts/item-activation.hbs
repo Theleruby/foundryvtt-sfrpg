@@ -63,6 +63,13 @@
         </div>
         {{/if}}
 
+        <div class="form-group" data-tooltip="{{ localize "SFRPG.Items.Activation.LabelTooltip" }}">
+            <label>{{localize "SFRPG.Items.Activation.Label"}}</label>
+            <div class="form-fields">
+                <input type="text" class="wide-form-field" name="system.activationLabel" value="{{itemData.activationLabel}}" data-dtype="String" placeholder=""/>
+            </div>
+        </div>
+
         {{!-- Limited Uses --}}
         <div class="form-group uses-per" data-tooltip="<strong>{{ localize "SFRPG.Items.Activation.LimitedUses" }}</strong><br/>@itemData.uses.value<br/>@itemData.uses.max</br/>@itemData.uses.per">
             <label>{{ localize "SFRPG.Items.Activation.LimitedUses" }}</label>

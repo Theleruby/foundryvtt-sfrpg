@@ -383,6 +383,7 @@ class SFRPGTimedActivation extends SFRPGTimedEffect {
             description,
             duration,
             activationEvent,
+            activationLabel,
             modifiers
         } = itemData;
         if (!activationEvent) return null;
@@ -392,7 +393,7 @@ class SFRPGTimedActivation extends SFRPGTimedEffect {
             itemUuid: item.uuid,
             actorUuid: item.actor.uuid,
             uuid: item.uuid,
-            name: item.name,
+            name: activationLabel ? activationLabel : item.name,
             type: item.type,
             enabled: isActive,
             context: null,
