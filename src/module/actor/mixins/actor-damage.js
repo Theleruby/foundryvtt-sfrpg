@@ -336,6 +336,8 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
             throw `actor._applyActorDamage received an invalid damage object, received ${damage.constructor}, expected SFRPGDamage.`;
         }
 
+        const dealtDamages = {};
+
         const actorUpdate = {};
         const actorData = foundry.utils.deepClone(this.system);
 
@@ -380,6 +382,7 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
         }
         remainingUndealtDamage += damage.modifier || 0;
 
+        const totalDamage = remainingUndealtDamage;
         const originalTempHP = parseInt(actorData.attributes.hp.temp) || 0;
         const originalSP = actorData.attributes?.sp?.value || 0;
         const originalHP = actorData.attributes.hp.value;
@@ -388,6 +391,7 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
             /** Update temp hitpoints */
             let newTempHP = Math.clamp(originalTempHP - remainingUndealtDamage, 0,
                 actorData.attributes.hp.tempmax || actorData.attributes.hp.temp);
+            dealtDamages["hp.temp"] = (originalTempHP - newTempHP);
             remainingUndealtDamage -= (originalTempHP - newTempHP);
 
             if (newTempHP <= 0) {
@@ -400,6 +404,7 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
             if (!damage?.options?.bypassStamina) {
             /** Update stamina points */
                 const newSP = Math.clamp(originalSP - remainingUndealtDamage, 0, actorData.attributes?.sp?.max || 0);
+                dealtDamages["sp"] = (originalSP - newSP);
                 remainingUndealtDamage -= (originalSP - newSP);
 
                 actorUpdate["system.attributes.sp.value"] = newSP;
@@ -407,6 +412,7 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
 
             /** Update hitpoints */
             const newHP = Math.clamp(originalHP - remainingUndealtDamage, 0, actorData.attributes.hp.max);
+            dealtDamages["hp"] = (originalHP - newHP);
             remainingUndealtDamage -= (originalHP - newHP);
 
             actorUpdate["system.attributes.hp.value"] = newHP;
@@ -419,6 +425,7 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
         } else {
             if (damage.healSettings.healsHitpoints) {
                 const newHP = Math.clamp(originalHP + remainingUndealtDamage, 0, actorData.attributes.hp.max);
+                dealtDamages["hp"] = (newHP - originalHP);
                 remainingUndealtDamage -= (newHP - originalHP);
 
                 actorUpdate["system.attributes.hp.value"] = newHP;
@@ -426,6 +433,7 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
 
             if (damage.healSettings.healsStamina) {
                 const newSP = Math.clamp(originalSP + remainingUndealtDamage, 0, actorData.attributes?.sp?.max);
+                dealtDamages["sp"] = (newSP - originalSP);
                 remainingUndealtDamage -= (newSP - originalSP);
 
                 actorUpdate["system.attributes.sp.value"] = newSP;
@@ -433,11 +441,30 @@ export const ActorDamageMixin = (superclass) => class extends superclass {
 
             if (damage.healSettings.healsTemporaryHitpoints) {
                 const newTempHP = Math.clamp(originalTempHP + remainingUndealtDamage, 0, actorData.attributes.hp.tempmax);
+                dealtDamages["hp.temp"] = (newTempHP - originalTempHP);
                 remainingUndealtDamage -= (newTempHP - originalTempHP);
 
                 actorUpdate["system.attributes.hp.temp"] = newTempHP;
             }
         }
+
+        // This is a hacky prototype that should be reimplemented properly
+        const appliedDamage = totalDamage - remainingUndealtDamage;
+        let cardContent = damage.isHealing ? `${this.name} was healed by ${appliedDamage}.` : `${this.name} was dealt ${appliedDamage} damage.`;
+        const colour = damage.isHealing ? "green" : "red";
+        const symbol = damage.isHealing ? "+" : "-";
+        const keyStrings = {'hp': 'Hit Points', 'sp': 'Stamina', 'hp.temp': "Temp HP"};
+        for (const [key, value] of Object.entries(dealtDamages)) {
+            if (value > 0) {
+                const keyString = keyStrings[key] ?? key;
+                cardContent += `<br/><span><span style="display: inline-block; width: 74px; font-weight: bold; padding-right: 6px;">${keyString}:</span><span style="display: inline-block; color: ${colour};">${symbol}${value}</span></span>`;
+            }
+        }
+        ChatMessage.create({
+            speaker: ChatMessage.getSpeaker({ actor: this }),
+            content: cardContent,
+            type: CONST.CHAT_MESSAGE_STYLES.OTHER
+        });
 
         const promise = this.update(actorUpdate);
         return promise;
