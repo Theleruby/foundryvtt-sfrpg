@@ -93,10 +93,12 @@
                 {{/if}}
                 <a class="item-control item-edit" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Edit"}}"><i class="fas fa-edit"></i></a>
                 {{#if isCharacter}}
-                    {{#if item.system.trash}}
-                        <a class="item-control item-trash" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Untrash"}}"><i class="fas fa-store-slash"></i></a>
-                    {{else}}
-                        <a class="item-control item-trash" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Trash"}}"><i class="fas fa-store"></i></a>
+                    {{#if (not (eq item.type "effect"))}}
+                        {{#if item.system.trash}}
+                            <a class="item-control item-trash" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Untrash"}}"><i class="fas fa-store-slash"></i></a>
+                        {{else}}
+                            <a class="item-control item-trash" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Trash"}}"><i class="fas fa-store"></i></a>
+                        {{/if}}
                     {{/if}}
                 {{/if}}
                 <a class="item-control item-delete" title="{{localize "SFRPG.ActorSheet.Inventory.Item.Delete"}}"><i class="fas fa-trash"></i></a>
