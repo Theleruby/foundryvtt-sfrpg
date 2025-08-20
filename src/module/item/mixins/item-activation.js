@@ -132,7 +132,7 @@ export const ItemActivationMixin = (superclass) => class extends superclass {
 
         const updatePromise = this.update(updateData);
 
-        if (active || duration.value || this.system.uses.max > 0) {
+        { // (active || duration.value || this.system.uses.max > 0) {
             updatePromise.then(() => {
                 // Render the chat card template
                 const templateData = active
