@@ -134,6 +134,25 @@ export default class SFRPGTimedEffect {
         return this;
     }
 
+    debugChatMessage() {
+        const item = this.item;
+        const actor = item.actor;
+        // temporary debug chat message
+        const contentEnabled = this.enabled ? "<span style=\"color: green; font-weight: bold;\">activated</span>" : "<span style=\"color: red; font-weight: bold;\">deactivated</span>";
+        const content = `<strong>${this.name}</strong> was ${contentEnabled} on <strong>${actor.name}</strong>.`;
+        /*
+        if (this.enabled) {
+            const remaining = Object.hasOwn(CONFIG.SFRPG.effectDurationFrom, this.activeDuration.unit) ? mkRemaining(this.activeDuration.activationEnd - game.time.worldTime, this.activeDuration.unit, this.enabled)?.string : "N/A";
+            content += `<br/><br/>Remaining duration is <strong>${remaining}</strong>.`;
+        }
+        */
+        ChatMessage.create({
+            speaker: ChatMessage.getSpeaker({ actor: actor }),
+            content: content,
+            type: CONST.CHAT_MESSAGE_STYLES.OTHER
+        });
+    }
+
     /**
      * toggle the effect on or off across the game.
      *
@@ -180,6 +199,7 @@ export default class SFRPGTimedEffect {
 
         if (this.showOnToken) this.createScrollingText(this.enabled);
 
+        this.debugChatMessage();
     }
 
     /** Update dynamic data, such as the time remaining */
