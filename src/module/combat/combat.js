@@ -868,6 +868,8 @@ export class CombatSFRPG extends foundry.documents.Combat {
             } else if (worldTime > effectStart && worldTime < effectFinish) {
                 targetEnabledState = true;
             } else {
+                console.log(`Checking ${effect.name} as it might need toggling or poking.`);
+
                 const startActorUuid = this._getTimedEffectTargetActor(effect, duration.activationTurn, false);
                 const startCombatant = this.combatants.find(combatant => combatant.actor.uuid === startActorUuid);
                 const startPosition = startCombatant ? this.turns.findIndex(combatant => combatant.id === startCombatant.id) : -1;
@@ -881,45 +883,81 @@ export class CombatSFRPG extends foundry.documents.Combat {
                 const newCombatantPosition = eventData.newCombatant ? this.turns.findIndex(combatant => combatant.id === eventData.newCombatant._id) : -1;
                 const newCombatantInit = eventData.newCombatant?.initiative || 1000;
 
+                // debug logging
+                console.log("State variables:", {
+                    startActorUuid: startActorUuid,
+                    startCombatant: startCombatant,
+                    startPosition: startPosition,
+                    startInit: startInit,
+                    expiryActorUuid: expiryActorUuid,
+                    expiryCombatant: expiryCombatant,
+                    expiryPosition: expiryPosition,
+                    expiryInit: expiryInit,
+                    newCombatant: eventData.newCombatant,
+                    newCombatantPosition: newCombatantPosition,
+                    newCombatantInit: newCombatantInit
+                });
+
                 if (duration.expiryMode.type === "turn") {
                     // Expire by turn
+                    console.log("TURN EXPIRY");
                     if (worldTime === effectStart && worldTime === effectFinish) {
+                        console.log(`worldTime === effectStart === effectFinish`);
                         if (duration.endsOn === 'onTurnEnd') {
                             targetEnabledState = newCombatantPosition >= startPosition && newCombatantPosition <= expiryPosition;
+                            console.log(`start:${startPosition} <= new:${newCombatantPosition} <= expiry:${expiryPosition}`);
                         } else {
                             targetEnabledState = newCombatantPosition >= startPosition && newCombatantPosition < expiryPosition;
+                            console.log(`start:${startPosition} <= new:${newCombatantPosition} < expiry:${expiryPosition}`);
                         }
                     } else if (worldTime === effectStart) {
+                        console.log(`worldTime === effectStart`);
                         targetEnabledState = newCombatantPosition >= startPosition;
+                        console.log(`new:${newCombatantPosition} >= start:${startPosition}`);
                     } else { // worldTime === effectFinish
+                        console.log(`worldTime === effectFinish`);
                         if (duration.endsOn === 'onTurnEnd') {
                             targetEnabledState = newCombatantPosition <= expiryPosition;
+                            console.log(`new:${newCombatantPosition} <= expiry:${expiryPosition}`);
                         } else { // onTurnStart
                             targetEnabledState = newCombatantPosition < expiryPosition;
+                            console.log(`new:${newCombatantPosition} < expiry:${expiryPosition}`);
                         }
                     }
                 } else {
                     // Expire by initiative
+                    console.log("INITIATIVE EXPIRY");
                     if (worldTime === effectStart && worldTime === effectFinish) {
+                        console.log(`worldTime === effectStart === effectFinish`);
                         if (duration.endsOn === 'onTurnEnd') {
                             targetEnabledState = newCombatantInit >= startInit && newCombatantInit <= expiryInit;
+                            console.log(`start:${startInit} <= new:${newCombatantInit} <= expiry:${expiryInit}`);
                         } else {
                             targetEnabledState = newCombatantInit >= startInit && newCombatantInit < expiryInit;
+                            console.log(`start:${startInit} <= new:${newCombatantInit} < expiry:${expiryInit}`);
                         }
                     } else if (worldTime === effectStart) {
+                        console.log(`worldTime === effectStart`);
                         targetEnabledState = newCombatantInit <= startInit;
+                        console.log(`new:${newCombatantInit} <= start:${startInit}`);
                     } else { // worldTime === effectFinish
+                        console.log(`worldTime === effectFinish`);
                         if (duration.endsOn === 'onTurnEnd') {
                             targetEnabledState = expiryInit < newCombatantInit;
+                            console.log(`expiry:${expiryInit} < new:${newCombatantInit}`);
                         } else { // onTurnStart
                             targetEnabledState = expiryInit <= newCombatantInit;
+                            console.log(`expiry:${expiryInit} <= new:${newCombatantInit}`);
                         }
                     }
                 }
             }
+            console.log(`targetEnabledState IS ${targetEnabledState}`);
             if (effect.enabled !== targetEnabledState) {
+                console.log(`effect.enabled !== ${targetEnabledState}. toggling`);
                 effect.toggle(false);
             } else if (effect.enabled) {
+                console.log(`poking.`);
                 effect.poke();
             }
         }
