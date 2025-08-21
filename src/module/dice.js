@@ -623,7 +623,14 @@ export class DiceSFRPG {
                     finalFormula.formula = finalFormula.formula + " + " + finalFormula.formula;
                 }
 
+                let tempFlavor = game.i18n.format("SFRPG.Rolls.Dice.CriticalFlavor", { "title": finalFlavor });
+
                 if (criticalData !== undefined) {
+                    if (criticalData?.effect?.trim().length > 0) {
+                        tempFlavor = game.i18n.format("SFRPG.Rolls.Dice.CriticalFlavorWithEffect", { "title": finalFlavor, "criticalEffect": criticalData.effect });
+                        tags.push({ tag: "critical-effect", text: game.i18n.format("SFRPG.Rolls.Dice.CriticalEffect", {"criticalEffect": criticalData.effect })});
+                    }
+
                     const critRoll = criticalData.parts?.filter(x => x.formula?.trim().length > 0).map(x => x.formula)
                         .join("+") ?? "";
                     if (critRoll.length > 0) {
@@ -634,7 +641,7 @@ export class DiceSFRPG {
                     htmlData.push({ name: "critical-data", value: JSON.stringify(criticalData) });
                 }
 
-                finalFlavor = game.i18n.format("SFRPG.Rolls.Dice.CriticalFlavor", { "title": finalFlavor });
+                finalFlavor = tempFlavor;
             }
 
             if (part?.name) {
