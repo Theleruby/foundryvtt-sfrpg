@@ -218,7 +218,7 @@ export class ActorSheetSFRPGCharacter extends ActorSheetSFRPG {
 
         const otherFeatures = [];
         for (const f of feats) {
-            if (f.system.activation.type) features.active.items.push(f);
+            if (f.system.activation.type && f.system.details?.category !== "biohack") features.active.items.push(f);
             else {
                 try {
                     features[f.system.details.category].items.push(f);

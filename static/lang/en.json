@@ -118,6 +118,7 @@
                     "ActorResources": "Actor Resources",
                     "ArchetypeFeatures": "Archetype Features",
                     "Archetypes": "Archetypes",
+                    "Biohacks": "Biohacks",
                     "ClassFeatures": "Class Features",
                     "Classes": "Classes",
                     "Feats": "Feats",
@@ -1041,6 +1042,7 @@
         },
         "FeatureCategory": {
             "ArchetypeFeature": "Archetype Feature",
+            "Biohack": "Biohack",
             "ClassFeature": "Class Feature",
             "Feat": "Feat",
             "OtherFeature": "Other Feature",

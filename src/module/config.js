@@ -827,6 +827,13 @@ SFRPG.featTypes = {
  * @type {Object.<string, FeatureCategory>}
  */
 SFRPG.featureCategories = {
+    "biohack": {
+        category: "SFRPG.ActorSheet.Features.Categories.Biohacks",
+        label: "SFRPG.FeatureCategory.Biohack",
+        items: [],
+        hasActions: false,
+        dataset: { type: "feat", "category": "biohack" }
+    },
     "feat": {
         category: "SFRPG.ActorSheet.Features.Categories.Feats",
         label: "SFRPG.FeatureCategory.Feat",
