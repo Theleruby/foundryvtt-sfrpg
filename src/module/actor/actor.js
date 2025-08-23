@@ -973,10 +973,11 @@ export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorCondition
 
         // Mark the actor as having had their turn
         if (game.combat?.started && selectedActorId) {
-            const acted = game.combat?.system?.acted || [];
+            const combatantByActor = game.combat.getCombatantByActor(this);
+            const acted = combatantByActor.system?.acted || [];
             if (!acted.includes(selectedActorId)) {
                 acted.push(selectedActorId);
-                game.combat.update({system: {acted: acted}});
+                await combatantByActor.update({system: {acted: acted}});
             }
         }
     }

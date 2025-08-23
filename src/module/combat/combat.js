@@ -376,7 +376,15 @@ export class CombatSFRPG extends foundry.documents.Combat {
         };
 
         if (eventData.isNewRound) {
-            updateData["system"] = {acted: []};
+            const updates = this.combatants.map(c => {
+                return {
+                    _id: c.id,
+                    system: {
+                        acted: []
+                    }
+                };
+            });
+            await this.updateEmbeddedDocuments("Combatant", updates);
         }
 
         updateOptions["eventData"] = eventData;
