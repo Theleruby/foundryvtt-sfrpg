@@ -375,6 +375,10 @@ export class CombatSFRPG extends foundry.documents.Combat {
             turn: nextTurn
         };
 
+        if (eventData.isNewRound) {
+            updateData["system"] = {acted: []};
+        }
+
         updateOptions["eventData"] = eventData;
 
         await this.update(updateData, updateOptions);
@@ -678,18 +682,18 @@ export class CombatSFRPG extends foundry.documents.Combat {
     }
 
     async _getInitiativeRoll(combatant) {
-        const rollContext = RollContext.createActorRollContext(combatant.actor, {actorKey: "combatant"});
-
+        let rollContext;
         const parts = [];
 
         if (this.getCombatType() === "starship") {
+            rollContext = RollContext.createActorRollContext(combatant.actor, {actorKey: "combatant"}, ["pilot"]);
             parts.push("@pilot.skills.pil.mod");
             if (!combatant.actor.system.crew.useNPCCrew) {
                 rollContext.addContext("ship", combatant.actor);
                 parts.push("@ship.attributes.pilotingBonus.value");
             }
-            rollContext.setMainContext("pilot");
         } else {
+            rollContext = RollContext.createActorRollContext(combatant.actor, {actorKey: "combatant"});
             parts.push("@combatant.attributes.init.total");
             if (game.settings.get("sfrpg", "useInitiativeTiebreaker")) {
                 parts.push(combatant.actor.system.attributes.init.total / 100);

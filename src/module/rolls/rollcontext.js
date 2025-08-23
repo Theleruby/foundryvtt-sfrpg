@@ -181,14 +181,15 @@ export default class RollContext {
      * @param {Object} dataOptions
      * @param {ActorSFRPG.system} dataOptions.actorData If the actor's data isn't in `actor.system`, specifiy it here.
      * @param {String} dataOptions.actorKey The @tag prefix to use to refer to the actor in roll formulas. This prefix is set as the main context
+     * @param {Array} desiredSelectors An array of the desired selectors. If not set then it gets left blank
      * @returns {RollContext}
      */
-    static createActorRollContext(actor, dataOptions = {actorData: null, actorKey: "actor"}) {
+    static createActorRollContext(actor, dataOptions = {actorData: null, actorKey: "actor"}, desiredSelectors = []) {
         const rollContext = new RollContext();
         if (actor) {
             rollContext.addContext(dataOptions?.actorKey ?? "actor", actor, dataOptions?.actorData);
             rollContext.setMainContext(dataOptions?.actorKey ?? "actor");
-            actor.setupRollContexts(rollContext);
+            actor.setupRollContexts(rollContext, desiredSelectors);
         }
         return rollContext;
     }

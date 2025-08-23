@@ -888,6 +888,7 @@ export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorCondition
         let roleName = game.i18n.format(roleKey);
 
         const desiredKey = actionEntry.system.selectorKey;
+        let selectedActorId = null;
         if (desiredKey) {
             const selectedContext = rollContext.allContexts[desiredKey];
             if (!selectedContext) {
@@ -896,8 +897,9 @@ export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorCondition
             }
 
             speakerActor = selectedContext?.entity || this;
+            selectedActorId = speakerActor?.fakeId || speakerActor?.uuid;
 
-            const actorRole = this.getCrewRoleForActor(speakerActor.id);
+            const actorRole = speakerActor?.role || this.getCrewRoleForActor(speakerActor.id);
             if (actorRole) {
                 const actorRoleKey = CONFIG.SFRPG.starshipRoles[actorRole];
                 roleName = game.i18n.format(actorRoleKey);
@@ -905,6 +907,7 @@ export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorCondition
         }
 
         let flavor = "";
+        flavor += `<strong>${speakerActor.name}</strong><br/>`;
         flavor += game.i18n.format("SFRPG.Rolls.StarshipActions.Chat.Role", {role: roleName, name: this.name});
         flavor += "<br/>";
         if (actionEntry.system.formula.length <= 1) {
@@ -961,12 +964,21 @@ export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorCondition
 
         ChatMessage.create({
             flavor: flavor,
-            speaker: ChatMessage.getSpeaker({ actor: speakerActor }),
+            speaker: ChatMessage.getSpeaker({ actor: this }),
             content: rollContent,
             rolls: [rollResult.roll],
             type: CONST.CHAT_MESSAGE_STYLES.OTHER,
             sound: CONFIG.sounds.dice
         }, { rollMode: rollMode});
+
+        // Mark the actor as having had their turn
+        if (game.combat?.started && selectedActorId) {
+            const acted = game.combat?.system?.acted || [];
+            if (!acted.includes(selectedActorId)) {
+                acted.push(selectedActorId);
+                game.combat.update({system: {acted: acted}});
+            }
+        }
     }
 
     levelUp(actorClassId) {
@@ -1096,12 +1108,28 @@ export class ActorSFRPG extends Mix(foundry.documents.Actor).with(ActorCondition
                 const populatedRoles = [];
                 crewRoles.forEach((role) => {
                     if (crewData.npcData[role]?.numberOfUses) {
-                        rollContext.addContext(
-                            role,
-                            { name: game.i18n.localize(SFRPG.starshipRoles[role]) },
-                            actorData.system.crew.npcData[role]
-                        );
-                        populatedRoles.push(role);
+                        const fakeCrew = [];
+                        for (let i = 1; i <= crewData.npcData[role]?.numberOfUses; i++) {
+                            const fakeId = `${this.uuid}.${role}${i}`;
+                            let name = game.i18n.localize(SFRPG.starshipRoles[role]);
+                            if (crewData.npcData[role]?.numberOfUses > 1) {
+                                name += ` ${i}`;
+                            }
+                            rollContext.addContext(
+                                fakeId,
+                                {
+                                    name: name,
+                                    role: role,
+                                    fakeId: fakeId
+                                },
+                                actorData.system.crew.npcData[role]
+                            );
+                            fakeCrew.push(fakeId);
+                            populatedRoles.push(fakeId);
+                        }
+                        if (desiredSelectors.includes(role)) {
+                            rollContext.addSelector(role, fakeCrew);
+                        }
                     }
                 });
                 const otherRoles = Object.keys(CONFIG.SFRPG.starshipOtherRoles);
