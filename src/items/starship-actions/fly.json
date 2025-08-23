@@ -30,7 +30,9 @@
     "resolvePointCost": 0,
     "role": "pilot",
     "selectorKey": "pilot",
-    "selectors": [],
+    "selectors": [
+	    "pilot"
+    ],
     "source": "CRB"
   }
 }

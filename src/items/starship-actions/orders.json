@@ -45,7 +45,9 @@
     "resolvePointCost": 1,
     "role": "captain",
     "selectorKey": "captain",
-    "selectors": [],
+    "selectors": [
+	    "captain"
+    ],
     "source": "CRB"
   }
 }
