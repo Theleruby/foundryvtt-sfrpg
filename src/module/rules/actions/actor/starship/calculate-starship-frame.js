@@ -187,6 +187,9 @@ export default function(engine) {
             tooltip: []
         };
 
+        // house rule - all ships 10% extra bp rounded to the nearest 5.
+        data.attributes.bp.max = Math.round(data.attributes.bp.max * 0.22) * 5;
+
         /** If galactic trade is enabled, max spent BP per tier is 5% higher. */
         if (isGalacticTradeEnabled) {
             data.attributes.bp.max = Math.floor(data.attributes.bp.max * 1.05);
