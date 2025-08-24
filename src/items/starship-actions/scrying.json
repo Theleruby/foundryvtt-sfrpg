@@ -7,7 +7,7 @@
     "type": "",
     "dc": {
       "resolve": false,
-      "value": "5 + 1-1/2 * Target Ship Tier + it's bonus from defensive countermeasures"
+      "value": "Enemy’s Scan DC"
     },
     "description": {
       "chat": "",

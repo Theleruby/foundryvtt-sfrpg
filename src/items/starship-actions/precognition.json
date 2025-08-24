@@ -14,10 +14,10 @@
       "gmnotes": "",
       "short": "",
       "unidentified": "",
-      "value": "<h2>Normal effect</h2><p>You use your supernatural senses and a spark of divination magic to see opponents’ motion before it happens, giving you just a split second to shout a warning to your ship’s pilot. Attempt a Mysticism check (DC = 10 + 1-1/2 × your starship’s tier). On a success, you grant the pilot a +2 circumstance bonus to their Piloting check at the beginning of the helm phase to determine piloting order.</p><h2>Critical effect</h2><p>Your precise senses give you detailed information about your opponents’ next move. Increase the circumstance bonus to the Piloting check to +4.</p>"
+      "value": "<h2>Normal effect</h2><p>You use your supernatural senses and a spark of divination magic to see opponents’ motion before it happens, giving you just a split second to shout a warning to your ship’s pilot. Attempt an <span style='color:#349f4a;font-weight:bold;'>Easy</span> Mysticism check. On a success, you grant the pilot a +2 circumstance bonus to their Piloting check at the beginning of the helm phase to determine piloting order.</p><h2>Critical effect</h2><p>Your precise senses give you detailed information about your opponents’ next move. Increase the circumstance bonus to the Piloting check to +4.</p>"
     },
     "effectCritical": "Your precise senses give you detailed information about your opponents’ next move. Increase the circumstance bonus to the Piloting check to +4.",
-    "effectNormal": "You use your supernatural senses and a spark of divination magic to see opponents’ motion before it happens, giving you just a split second to shout a warning to your ship’s pilot. Attempt a Mysticism check (DC = 10 + 1-1/2 × your starship’s tier). On a success, you grant the pilot a +2 circumstance bonus to their Piloting check at the beginning of the helm phase to determine piloting order.",
+    "effectNormal": "You use your supernatural senses and a spark of divination magic to see opponents’ motion before it happens, giving you just a split second to shout a warning to your ship’s pilot. Attempt an <span style='color:#349f4a;font-weight:bold;'>Easy</span> Mysticism check. On a success, you grant the pilot a +2 circumstance bonus to their Piloting check at the beginning of the helm phase to determine piloting order.",
     "formula": [
       {
         "name": "Mysticism",
