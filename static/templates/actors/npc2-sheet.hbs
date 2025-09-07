@@ -188,7 +188,7 @@
                     {{> "systems/sfrpg/templates/actors/parts/actor-movement-element.hbs" expand=true}}
                 </ul>
 
-                <ul class="attributes flexrow">
+                <ul class="attributes flexrow last">
                     <li class="attribute new-save" data-save="fort" data-tooltip="<strong>{{ localize "SFRPG.FortitudeSave" }}</strong><br/>@attributes.fort.bonus<br/><br/>{{#each system.attributes.fort.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
                         <h4 class="attribute-name save-name box-title rollable">{{localize "SFRPG.FortitudeSave"}}</h4>
                         <div class="attrib-modifiers flexrow">
@@ -216,10 +216,6 @@
                         </div>
                     </li>
                 </ul>
-
-                {{!-- Legendary Actions --}}
-                <div class="counters flexrow">
-                </div>
 
                 {{!-- Traits --}}
                 {{> "systems/sfrpg/templates/actors/parts/actor-traits.hbs"}}
