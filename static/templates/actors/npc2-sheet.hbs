@@ -133,6 +133,17 @@
                     </li>
 
                     <li class="attribute health">
+                        <h4 class="attribute-name box-title">{{ localize "SFRPG.Stamina"}}</h4>
+                        <div class="attribute-value multiple">
+                            <input name="system.attributes.sp.value" type="text" value="{{system.attributes.sp.value}}"
+                                   data-dtype="Number" placeholder="0" />
+                            <span class="sep"> / </span>
+                            <input name="system.attributes.sp.max" type="text" value="{{system.attributes.sp.max}}"
+                                   data-dtype="Number" placeholder="0" />
+                        </div>
+                    </li>
+
+                    <li class="attribute health">
                         <h4 class="attribute-name box-title">{{ localize "SFRPG.Resolve"}}</h4>
                         <div class="attribute-value multiple">
                             <input name="system.attributes.rp.value" type="text" value="{{system.attributes.rp.value}}"
@@ -144,7 +155,7 @@
                     </li>
 
                     <li class="attribute" data-tooltip="<strong>{{ localize "SFRPG.EnergyArmorClass" }}</strong><br/>@attributes.eac.value<br/><br/>{{#each system.attributes.eac.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
-                        <h4 class="attribute-name new-box-title">{{ localize "SFRPG.EnergyArmorClass" }}</h4>
+                        <h4 class="attribute-name new-box-title">{{ localize "SFRPG.EnergyArmorClassShort" }}</h4>
                         <div class="attrib-modifiers flexrow">
                             <span class="attrib-mod"></span>
                             <div class="attrib-center">{{system.attributes.eac.value}}</div>
@@ -153,7 +164,7 @@
                     </li>
 
                     <li class="attribute" data-tooltip="<strong>{{ localize "SFRPG.KineticArmorClass" }}</strong><br/>@attributes.kac.value<br/><br/>{{#each system.attributes.kac.tooltip as |tip|}}{{tip}}<br/>{{/each}}">
-                        <h4 class="attribute-name new-box-title">{{ localize "SFRPG.KineticArmorClass" }}</h4>
+                        <h4 class="attribute-name new-box-title">{{ localize "SFRPG.KineticArmorClassShort" }}</h4>
                         <div class="attrib-modifiers flexrow">
                             <span class="attrib-mod"></span>
                             <div class="attrib-center">{{system.attributes.kac.value}}</div>
