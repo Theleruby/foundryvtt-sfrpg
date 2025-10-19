@@ -57,6 +57,9 @@
         {{#if isNPC}}
         <a class="item active{{#if system.details.ecology.value}} highlight{{/if}}" data-tab="ecology">{{localize "SFRPG.ActorSheet.Biography.TabEcology"}}</a>
         {{/if}}
+        {{#if isOwner}}
+        <a class="item active{{#if system.details.biography.privateNotes}} highlight{{/if}}" data-tab="privateNotes">{{localize "SFRPG.ActorSheet.Biography.TabPrivateNotes"}}</a>
+        {{/if}}
         {{#if isGM}}
         <a class="item{{#if system.details.biography.gmNotes}} highlight{{/if}}" data-tab="gmNotes">{{localize "SFRPG.ActorSheet.Biography.TabGM"}} {{#if system.details.biography.gmNotes}} (!){{/if}}</a>
         {{/if}}
@@ -108,6 +111,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="tab flexrow" data-group="biographyTabs" data-tab="privateNotes">
+            {{editor
+                enrichedPrivateNotes
+                target="system.details.biography.privateNotes"
+                button=true
+                editable=editable
+                engine="prosemirror"
+                collaborate="true"
+            }}
         </div>
         {{#if isGM}}
         <div class="tab flexrow" data-group="biographyTabs" data-tab="gmNotes">
