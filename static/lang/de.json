@@ -994,6 +994,7 @@
             }
         },
         "DurationTypesInstantaneous": "Augenblicklich",
+        "DurationTypesTurn": "Turn",
         "Effect": {
             "DetailsEnabledLabel": "Aktiviert",
             "DetailsHeader": "Effektdetails",
