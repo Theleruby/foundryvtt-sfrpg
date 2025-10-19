@@ -75,7 +75,7 @@ export default class SFRPGTokenDocument extends foundry.documents.TokenDocument 
      * whether or not the token has the "prone" condition.
      */
     async updateMovement(actor) {
-        const mainMovement = actor.system.attributes.speed.mainMovement;
+        const mainMovement = actor.system.attributes.speed?.mainMovement;
         let update = {};
         if (this.hasStatusEffect("prone") && this.movementAction !== "crawl") {
             update = {_id: this._id, movementAction: "crawl"};
