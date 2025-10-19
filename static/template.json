@@ -803,9 +803,69 @@
         },
         "baseSpellDC": {
           "base": 0
+        },
+        "highAttackBonus": {
+          "base": 0
+        },
+        "highDamageBonus": {
+          "base": 0
+        },
+        "lowAttackBonus": {
+          "base": 0
+        },
+        "lowDamageBonus": {
+          "base": 0
+        },
+        "specialAttackBonus": {
+          "base": 0
+        },
+        "specialDamageBonus": {
+          "base": 0
         }
       },
       "details": {
+        "combatBonuses": {
+          "basicM": {
+            "type": "",
+            "damage": false
+          },
+          "advancedM": {
+            "type": "",
+            "damage": false
+          },
+          "smallA": {
+            "type": "",
+            "damage": false
+          },
+          "longA": {
+            "type": "",
+            "damage": false
+          },
+          "heavy": {
+            "type": "",
+            "damage": false
+          },
+          "sniper": {
+            "type": "",
+            "damage": false
+          },
+          "grenade": {
+            "type": "",
+            "damage": false
+          },
+          "special": {
+            "type": "",
+            "damage": false
+          },
+          "equipment": {
+            "type": "",
+            "damage": false
+          },
+          "shield": {
+            "type": "",
+            "damage": false
+          }
+        },
         "type": "",
         "environment": "",
         "organization": "",

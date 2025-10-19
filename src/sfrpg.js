@@ -459,6 +459,8 @@ Hooks.once("i18nInit", () => {
         "ammunitionTypes",
         "armorProficiencies",
         "armorTypes",
+        "npcCombatBonusTypes",
+        "npcCombatBonusWeaponTypes",
         "augmentationSystems",
         "augmentationTypes",
         "babProgression",

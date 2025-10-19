@@ -488,9 +488,17 @@ export class ActorSheetSFRPG extends foundry.appv1.sheets.ActorSheet {
             // Define Roll parts
             const parts = [];
 
-            if (Number.isNumeric(itemData.attackBonus) && itemData.attackBonus !== 0) parts.push("@item.attackBonus");
+            if (actor.type === "npc2" && ["weapon", "equipment", "shield"].includes(item.type)) {
+                const weaponType = item.type === "weapon" ? itemData.weaponType : item.type;
+                const bonusType = actor.system.details.combatBonuses[weaponType]?.type;
+                if (bonusType in CONFIG.SFRPG.npcCombatBonusTypes) {
+                    abl = "";
+                    parts.push(`@attributes.${bonusType}AttackBonus.total`);
+                }
+            }
             if (abl) parts.push(`@abilities.${abl}.mod`);
             if (["character", "drone"].includes(actor.type)) parts.push("@attributes.baseAttackBonus.value");
+            if (Number.isNumeric(itemData.attackBonus) && itemData.attackBonus !== 0) parts.push("@item.attackBonus");
             if (isWeapon) {
                 const procifiencyKey = SFRPG.weaponTypeProficiency[item.system.weaponType];
                 const proficient = itemData.proficient || actor?.system?.traits?.weaponProf?.value?.includes(procifiencyKey);
@@ -533,8 +541,20 @@ export class ActorSheetSFRPG extends foundry.appv1.sheets.ActorSheet {
     _prepareDamageString(item) {
         try {
             const isWeapon = ["weapon", "shield"].includes(item.type);
-            const formula = item.system.damage.parts[0].formula;
+            let formula = item.system.damage.parts[0].formula;
             if (!formula) throw ("No damage formula, deferring to default string");
+
+            if (item.actor.type === "npc2" && ["weapon", "equipment", "shield"].includes(item.type)) {
+                if (item.system.damage.parts[0].isPrimarySection) {
+                    const weaponType = item.type === "weapon" ? item.system.weaponType : item.type;
+                    const combatBonusData = item.actor.system.details.combatBonuses[weaponType];
+                    const bonusType = combatBonusData?.type;
+                    const applyDamageBonus = combatBonusData?.damage;
+                    if (bonusType in CONFIG.SFRPG.npcCombatBonusTypes && applyDamageBonus) {
+                        formula += ` + @attributes.${bonusType}DamageBonus.total`;
+                    }
+                }
+            }
 
             let appropriateMods = item.getAppropriateDamageModifiers(isWeapon);
             // Remove situational modifiers

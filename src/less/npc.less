@@ -223,6 +223,96 @@
         font-weight: bold;
         margin: 0;
     }
+
+    /* ----------------------------------------- */
+    /*  Combat Bonuses                           */
+    /* ----------------------------------------- */
+
+    .combat-bonus-weapon-types {
+        margin: 5px;
+        padding-right: 4px;
+
+        .form-group,
+        .form-group-stacked {
+            margin: 0 0 4px 0;
+            justify-content: space-between;
+        }
+
+        label {
+            line-height: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        select {
+            flex: 0 0 70px;
+        }
+
+        label.checkbox {
+            flex: 0 0 130px;
+        }
+
+        .value {
+            text-align: right;
+        }
+    }
+
+    .combat-bonus-column {
+        flex: 0 0 40%;
+    }
+
+    div.combat-bonus-info {
+        flex-grow: 0;
+        padding: 10px 4px 12px;
+        margin: 2px;
+
+        p {
+            margin: 0px 4px;
+        }
+    }
+
+    ul.combat-bonuses {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li.combat-bonus {
+            height: 88px;
+            margin: 0 2px;
+            margin-bottom: 3px;
+            text-align: center;
+            border: 2px groove #eeede0;
+            border-radius: 3px;
+
+            .combat-bonus-modifiers {
+                height: 32px;
+
+                span.bonus-mod {
+                    flex: 0 0 32px;
+                    height: 30px;
+                    overflow: hidden;
+                    border: 0px;
+                    padding: 7px 0 0;
+                }
+
+                div.bonus-center {
+                    margin: 8px 0 10px;
+                    font-size: var(--font-size-28);
+                    overflow: hidden;
+                }
+
+                input[type="text"].bonus-base {
+                    flex: 0 0 32px;
+                    margin: 31px 0 0px;
+                    height: 30px;
+                    overflow: hidden;
+                    border-top: @borderGroove;
+                    border-left: @borderGroove;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
 }
 
 @headerHeight: 140px;
