@@ -112,7 +112,7 @@ export class CombatSFRPG extends foundry.documents.Combat {
     async delete(options = {}) {
         Hooks.callAll("onBeforeCombatEnd", this);
         super.delete(options);
-        game.time.advance(CONFIG.time.roundTime);
+        game.time.advance(CONFIG.time.roundTime * 300);
     }
 
     // Override to account for ascending or descending turn order.
