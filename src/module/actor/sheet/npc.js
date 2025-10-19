@@ -84,7 +84,7 @@ export class ActorSheetSFRPGNPC extends ActorSheetSFRPG {
                 label: game.i18n.localize("SFRPG.NPCSheet.Inventory.Inventory"),
                 items: [],
                 dataset: {
-                    type: "augmentation,consumable,container,equipment,fusion,goods,hybrid,magic,technological,upgrade,shield,weapon,weaponAccessory"
+                    type: "augmentation,consumable,container,equipment,fusion,goods,quest,hybrid,magic,technological,upgrade,shield,weapon,weaponAccessory"
                 },
                 allowAdd: true
             }

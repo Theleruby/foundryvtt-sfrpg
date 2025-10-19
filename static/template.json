@@ -1298,6 +1298,7 @@
       "goods",
       "hybrid",
       "magic",
+      "quest",
       "shield",
       "technological",
       "upgrade",
@@ -1591,6 +1592,13 @@
         "modifiers"
       ]
     },
+    "quest": {
+      "templates": [
+        "itemDescription",
+        "physicalItem",
+        "modifiers"
+      ]
+    },
     "container": {
       "templates": [
         "itemDescription",
@@ -1610,6 +1618,7 @@
               "shield",
               "equipment",
               "goods",
+              "quest",
               "consumable",
               "container",
               "technological",
