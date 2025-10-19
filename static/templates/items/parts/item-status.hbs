@@ -28,5 +28,9 @@
                 {{ localize "SFRPG.Items.Equipped" }}
             </label>
         {{/if}}
+        <label class="checkbox">
+            <input type="checkbox" name="system.trash" {{checked itemData.trash}} />
+            {{ localize "SFRPG.Items.Trash" }}
+        </label>
     </div>
 </div>
